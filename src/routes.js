@@ -90,12 +90,5 @@ var routes = [
     component: <StockPredictor />,
     layout: "/admin",
   },
-  {
-    path: "/settings",
-    name: "Settings",
-    icon: "tim-icons icon-settings-gear-63",
-    component: <Settings />,
-    layout: "/admin",
-  },
 ];
 export default routes;
