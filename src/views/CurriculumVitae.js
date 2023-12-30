@@ -17,74 +17,112 @@
 */
 import React from "react";
 // nodejs library that concatenates classes
-import classNames from "classnames";
 // react plugin used to create charts
-import { Line, Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 
 // reactstrap components
-import {
-  Button,
-  ButtonGroup,
-  Card,
-  CardHeader,
-  CardBody,
-  CardTitle,
-  Row,
-  Col,
-} from "reactstrap";
+import { Card, CardHeader, CardBody, CardTitle, Row, Col } from "reactstrap";
 
 // core components
-import {
-  chartExample1,
-  chartExample2,
-  chartExample3,
-  chartExample4,
-} from "variables/charts.js";
+import { chartExample2, chartExample4 } from "variables/charts.js";
 
 function CurriculumVitae(props) {
-  const [bigChartData, setbigChartData] = React.useState("data1");
-  const setBgChartData = (name) => {
-    setbigChartData(name);
-  };
   return (
     <>
       <div className="content">
         <Row>
           <Col xs="6">
-            <Card className="card-chart">
+            <Card style={{ height: "20rem" }} className="card-chart">
               <CardHeader>
-                <Row>
-                  <Col className="text-left" sm="6">
-                    <h5 className="card-category">Datos personales</h5>
-                    <CardTitle tag="h2">Javier Plaza Sisqués</CardTitle>
-                  </Col>
-                </Row>
+                <h5 className="card-category">Datos Personales</h5>
               </CardHeader>
               <CardBody>
-                <div className="chart-area">
-                  <Line
-                    data={chartExample1[bigChartData]}
-                    options={chartExample1.options}
-                  />
-                </div>
+                <Row>
+                  <Col xs="6">
+                    <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                      <img
+                        alt="..."
+                        className="avatar"
+                        src={require("assets/img/jsisques.jpeg")}
+                        style={{ width: "75%", height: "75%" }}
+                      />
+                    </a>
+                  </Col>
+                  <Col xs="6">
+                    <Row>
+                      <h2 className="title">
+                        Javier Plaza Sisqués
+                        <br></br>
+                        <p>
+                          <small className="text-muted">Programador</small>
+                        </p>
+                      </h2>
+                    </Row>
+                    <Row>
+                      <Col className="font-icon-list" xs="0">
+                        <i className="tim-icons icon-single-02" />
+                      </Col>
+                      <Col className="font-icon-list" xs="11">
+                        <p>javierplazasisques@gmail.com</p>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col className="font-icon-list" xs="0">
+                        <i className="tim-icons icon-single-02" />
+                      </Col>
+                      <Col className="font-icon-list">
+                        <a
+                          href="tel:+34659761003"
+                          onClick={(e) => e.preventDefault()}
+                        >
+                          <p>+34 659 76 10 03</p>
+                        </a>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col className="font-icon-list" xs="0">
+                        <i className="tim-icons icon-single-02" />
+                      </Col>
+                      <Col className="font-icon-list">
+                        <a
+                          href="https://github.com/JSisques"
+                          onClick={(e) => e.preventDefault()}
+                        >
+                          <p>JSisques</p>
+                        </a>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col className="font-icon-list" xs="0">
+                        <i className="tim-icons icon-single-02" />
+                      </Col>
+                      <Col className="font-icon-list">
+                        <a
+                          href="https://www.linkedin.com/in/javier-plaza-sisqu%C3%A9s-b79367172/"
+                          onClick={(e) => e.preventDefault()}
+                        >
+                          <p>Javier Plaza Sisqués</p>
+                        </a>
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row>
               </CardBody>
             </Card>
           </Col>
           <Col xs="6">
-            <Card className="card-chart">
+            <Card style={{ height: "20rem" }} className="card-chart">
               <CardHeader>
-                <Row>
-                  <Col className="text-left" sm="6">
-                    <h5 className="card-category">Estudios</h5>
-                    <CardTitle tag="h2">Estudios</CardTitle>
-                  </Col>
-                </Row>
+                <h5 className="card-category">Estudios</h5>
+                <CardTitle tag="h3">
+                  <i className="tim-icons icon-send text-success" /> 12,100K
+                </CardTitle>
               </CardHeader>
               <CardBody>
                 <div className="chart-area">
                   <Line
-                    data={chartExample1[bigChartData]}
-                    options={chartExample1.options}
+                    data={chartExample4.data}
+                    options={chartExample4.options}
                   />
                 </div>
               </CardBody>
@@ -93,7 +131,7 @@ function CurriculumVitae(props) {
         </Row>
         <Row>
           <Col lg="8">
-            <Card className="card-chart">
+            <Card style={{ height: "20rem" }} className="card-chart">
               <CardHeader>
                 <h5 className="card-category">Experiencia</h5>
                 <CardTitle tag="h3">
@@ -111,7 +149,7 @@ function CurriculumVitae(props) {
             </Card>
           </Col>
           <Col lg="4">
-            <Card className="card-chart">
+            <Card style={{ height: "20rem" }} className="card-chart">
               <CardHeader>
                 <h5 className="card-category">Lenguajes</h5>
                 <CardTitle tag="h3">
@@ -131,7 +169,7 @@ function CurriculumVitae(props) {
         </Row>
         <Row>
           <Col lg="8">
-            <Card className="card-chart">
+            <Card style={{ height: "20rem" }} className="card-chart">
               <CardHeader>
                 <h5 className="card-category">Proyectos</h5>
                 <CardTitle tag="h3">
@@ -151,9 +189,9 @@ function CurriculumVitae(props) {
         </Row>
         <Row>
           <Col lg="3">
-            <Card className="card-chart">
+            <Card style={{ height: "20rem" }} className="card-chart">
               <CardHeader>
-                <h5 className="card-category">Sobre mi</h5>
+                <h5 className="card-category">Idiomas</h5>
                 <CardTitle tag="h3">
                   <i className="tim-icons icon-bell-55 text-info" /> 763,215
                 </CardTitle>
@@ -169,25 +207,7 @@ function CurriculumVitae(props) {
             </Card>
           </Col>
           <Col lg="3">
-            <Card className="card-chart">
-              <CardHeader>
-                <h5 className="card-category">Lenguajes</h5>
-                <CardTitle tag="h3">
-                  <i className="tim-icons icon-bell-55 text-info" /> 763,215
-                </CardTitle>
-              </CardHeader>
-              <CardBody>
-                <div className="chart-area">
-                  <Line
-                    data={chartExample2.data}
-                    options={chartExample2.options}
-                  />
-                </div>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col lg="3">
-            <Card className="card-chart">
+            <Card style={{ height: "20rem" }} className="card-chart">
               <CardHeader>
                 <h5 className="card-category">Premios</h5>
                 <CardTitle tag="h3">
@@ -205,9 +225,27 @@ function CurriculumVitae(props) {
             </Card>
           </Col>
           <Col lg="3">
-            <Card className="card-chart">
+            <Card style={{ height: "20rem" }} className="card-chart">
               <CardHeader>
                 <h5 className="card-category">Otros</h5>
+                <CardTitle tag="h3">
+                  <i className="tim-icons icon-bell-55 text-info" /> 763,215
+                </CardTitle>
+              </CardHeader>
+              <CardBody>
+                <div className="chart-area">
+                  <Line
+                    data={chartExample2.data}
+                    options={chartExample2.options}
+                  />
+                </div>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col lg="3">
+            <Card style={{ height: "20rem" }} className="card-chart">
+              <CardHeader>
+                <h5 className="card-category">Sobre mi</h5>
                 <CardTitle tag="h3">
                   <i className="tim-icons icon-bell-55 text-info" /> 763,215
                 </CardTitle>
