@@ -20,6 +20,7 @@ import Icons from "views/Icons.js";
 import Map from "views/Map.js";
 import Notifications from "views/Notifications.js";
 import Rtl from "views/Rtl.js";
+import StockPredictor from "views/StockPredictor";
 import TableList from "views/TableList.js";
 import Typography from "views/Typography.js";
 import UserProfile from "views/UserProfile.js";
@@ -88,6 +89,14 @@ var routes = [
     icon: "tim-icons icon-world",
     component: <Rtl />,
     layout: "/rtl",
+  },
+  {
+    path: "/stock-predictor",
+    name: "Stock Predictor",
+    rtlName: "ار تي ال",
+    icon: "tim-icons icon-world",
+    component: <StockPredictor />,
+    layout: "/admin",
   },
 ];
 export default routes;
