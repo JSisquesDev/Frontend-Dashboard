@@ -70,7 +70,7 @@ function CurriculumVitae(props) {
                       <Col className="font-icon-list" xs="0">
                         <i className="tim-icons icon-single-02" />
                       </Col>
-                      <Col className="font-icon-list">
+                      <Col className="font-icon-list" xs="11">
                         <a
                           href="tel:+34659761003"
                           onClick={(e) => e.preventDefault()}
@@ -83,7 +83,7 @@ function CurriculumVitae(props) {
                       <Col className="font-icon-list" xs="0">
                         <i className="tim-icons icon-single-02" />
                       </Col>
-                      <Col className="font-icon-list">
+                      <Col className="font-icon-list" xs="11">
                         <a
                           href="https://github.com/JSisques"
                           onClick={(e) => e.preventDefault()}
@@ -96,7 +96,7 @@ function CurriculumVitae(props) {
                       <Col className="font-icon-list" xs="0">
                         <i className="tim-icons icon-single-02" />
                       </Col>
-                      <Col className="font-icon-list">
+                      <Col className="font-icon-list" xs="11">
                         <a
                           href="https://www.linkedin.com/in/javier-plaza-sisqu%C3%A9s-b79367172/"
                           onClick={(e) => e.preventDefault()}
@@ -246,17 +246,32 @@ function CurriculumVitae(props) {
             <Card style={{ height: "20rem" }} className="card-chart">
               <CardHeader>
                 <h5 className="card-category">Sobre mi</h5>
-                <CardTitle tag="h3">
-                  <i className="tim-icons icon-bell-55 text-info" /> 763,215
-                </CardTitle>
               </CardHeader>
               <CardBody>
-                <div className="chart-area">
-                  <Line
-                    data={chartExample2.data}
-                    options={chartExample2.options}
-                  />
-                </div>
+                <Row>
+                  <Col className="font-icon-list" xs="1">
+                    <i className="tim-icons icon-single-02" />
+                  </Col>
+                  <Col className="font-icon-list">
+                    <p>Aprendo y amplio mis conocimientos</p>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col className="font-icon-list" xs="1">
+                    <i className="tim-icons icon-single-02" />
+                  </Col>
+                  <Col className="font-icon-list">
+                    <p>Me gusta trabajar en equipo</p>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col className="font-icon-list" xs="1">
+                    <i className="tim-icons icon-single-02" />
+                  </Col>
+                  <Col className="font-icon-list">
+                    <p>Me gusta resolver todo tipo de problemas</p>
+                  </Col>
+                </Row>
               </CardBody>
             </Card>
           </Col>
