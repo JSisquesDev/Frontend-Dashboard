@@ -41,7 +41,7 @@ import {
   chartExample4,
 } from "variables/charts.js";
 
-function StockPredictor(props) {
+function CurriculumVitae(props) {
   const [bigChartData, setbigChartData] = React.useState("data1");
   const setBgChartData = (name) => {
     setbigChartData(name);
@@ -191,4 +191,4 @@ function StockPredictor(props) {
   );
 }
 
-export default StockPredictor;
+export default CurriculumVitae;
