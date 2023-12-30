@@ -27,19 +27,7 @@ function Footer() {
       <Container fluid>
         <Nav>
           <NavItem>
-            <NavLink href="https://www.creative-tim.com/?ref=bdr-user-archive-footer">
-              Creative Tim
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="https://www.creative-tim.com/presentation?ref=bdr-user-archive-footer">
-              About Us
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="https://www.creative-tim.com/blog?ref=bdr-user-archive-footer">
-              Blog
-            </NavLink>
+            <NavLink href="https://github.com/JSisquesDev">JSisquesDev</NavLink>
           </NavItem>
         </Nav>
         <div className="copyright">
@@ -47,8 +35,7 @@ function Footer() {
           <i className="tim-icons icon-heart-2" /> by{" "}
           <a href="https://github.com/JSisques" target="_blank">
             JSisques
-          </a>{" "}
-          for a better web.
+          </a>
         </div>
       </Container>
     </footer>
