@@ -45,11 +45,8 @@ function Footer() {
         <div className="copyright">
           © {new Date().getFullYear()} made with{" "}
           <i className="tim-icons icon-heart-2" /> by{" "}
-          <a
-            href="https://www.creative-tim.com/?ref=bdr-user-archive-footer"
-            target="_blank"
-          >
-            Creative Tim
+          <a href="https://github.com/JSisques" target="_blank">
+            JSisques
           </a>{" "}
           for a better web.
         </div>
