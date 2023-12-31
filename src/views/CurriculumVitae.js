@@ -31,24 +31,23 @@ function CurriculumVitae(props) {
     <>
       <div className="content">
         <Row>
-          <Col xs="6">
-            <Card style={{ height: "20rem" }} className="card-chart">
+          <Col xs="5">
+            <Card style={{ height: "20rem" }}>
               <CardHeader>
                 <h5 className="card-category">Datos Personales</h5>
               </CardHeader>
               <CardBody>
                 <Row>
-                  <Col xs="6">
+                  <Col xs="5" className="text-center">
                     <a href="#pablo" onClick={(e) => e.preventDefault()}>
                       <img
                         alt="..."
-                        className="avatar"
+                        className="image-rounded"
                         src={require("assets/img/jsisques.jpeg")}
-                        style={{ width: "75%", height: "75%" }}
                       />
                     </a>
                   </Col>
-                  <Col xs="6">
+                  <Col xs="7">
                     <Row>
                       <h2 className="title">
                         Javier Plaza Sisqués
@@ -62,7 +61,7 @@ function CurriculumVitae(props) {
                     </Row>
                     <Row>
                       <Col className="font-icon-list" xs="0">
-                        <i className="tim-icons icon-single-02" />
+                        <i className="tim-icons icon-email-85" />
                       </Col>
                       <Col className="font-icon-list" xs="11">
                         <p>javierplazasisques@gmail.com</p>
@@ -70,7 +69,7 @@ function CurriculumVitae(props) {
                     </Row>
                     <Row>
                       <Col className="font-icon-list" xs="0">
-                        <i className="tim-icons icon-single-02" />
+                        <i className="tim-icons icon-mobile" />
                       </Col>
                       <Col className="font-icon-list" xs="11">
                         <a
@@ -112,8 +111,8 @@ function CurriculumVitae(props) {
               </CardBody>
             </Card>
           </Col>
-          <Col xs="6">
-            <Card style={{ height: "20rem" }} className="card-chart">
+          <Col xs="7">
+            <Card style={{ height: "20rem" }}>
               <CardHeader>
                 <h5 className="card-category">Estudios</h5>
               </CardHeader>
@@ -170,7 +169,7 @@ function CurriculumVitae(props) {
         </Row>
         <Row>
           <Col lg="8">
-            <Card style={{ height: "20rem" }} className="card-chart">
+            <Card style={{ height: "20rem" }}>
               <CardHeader>
                 <h5 className="card-category">Experiencia</h5>
                 <CardTitle tag="h3">
@@ -188,7 +187,7 @@ function CurriculumVitae(props) {
             </Card>
           </Col>
           <Col lg="4">
-            <Card style={{ height: "20rem" }} className="card-chart">
+            <Card style={{ height: "20rem" }}>
               <CardHeader>
                 <h5 className="card-category">Lenguajes</h5>
                 <CardTitle tag="h3">
@@ -208,7 +207,7 @@ function CurriculumVitae(props) {
         </Row>
         <Row>
           <Col lg="8">
-            <Card style={{ height: "20rem" }} className="card-chart">
+            <Card style={{ height: "20rem" }}>
               <CardHeader>
                 <h5 className="card-category">Proyectos</h5>
                 <CardTitle tag="h3">
@@ -228,7 +227,7 @@ function CurriculumVitae(props) {
         </Row>
         <Row>
           <Col lg="3">
-            <Card style={{ height: "20rem" }} className="card-chart">
+            <Card style={{ height: "20rem" }}>
               <CardHeader>
                 <h5 className="card-category">Idiomas</h5>
               </CardHeader>
@@ -267,7 +266,7 @@ function CurriculumVitae(props) {
             </Card>
           </Col>
           <Col lg="3">
-            <Card style={{ height: "20rem" }} className="card-chart">
+            <Card style={{ height: "20rem" }}>
               <CardHeader>
                 <h5 className="card-category">Premios</h5>
               </CardHeader>
@@ -312,7 +311,7 @@ function CurriculumVitae(props) {
             </Card>
           </Col>
           <Col lg="3">
-            <Card style={{ height: "20rem" }} className="card-chart">
+            <Card style={{ height: "20rem" }}>
               <CardHeader>
                 <h5 className="card-category">Otros</h5>
               </CardHeader>
@@ -348,7 +347,7 @@ function CurriculumVitae(props) {
             </Card>
           </Col>
           <Col lg="3">
-            <Card style={{ height: "20rem" }} className="card-chart">
+            <Card style={{ height: "20rem" }}>
               <CardHeader>
                 <h5 className="card-category">Sobre mi</h5>
               </CardHeader>
