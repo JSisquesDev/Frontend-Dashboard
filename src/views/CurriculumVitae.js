@@ -15,17 +15,17 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import { backgroundColors } from "contexts/BackgroundColorContext";
-import React from "react";
+import { backgroundColors } from 'contexts/BackgroundColorContext';
+import React from 'react';
 // nodejs library that concatenates classes
 // react plugin used to create charts
-import { Line } from "react-chartjs-2";
+import { Line } from 'react-chartjs-2';
 
 // reactstrap components
-import { Card, CardHeader, CardBody, CardTitle, Row, Col } from "reactstrap";
+import { Card, CardHeader, CardBody, CardTitle, Row, Col } from 'reactstrap';
 
 // core components
-import { chartExample2, chartExample4 } from "variables/charts.js";
+import { chartExample2, chartExample4 } from 'variables/charts.js';
 
 function CurriculumVitae(props) {
   return (
@@ -33,22 +33,17 @@ function CurriculumVitae(props) {
       <div className="content">
         <Row>
           <Col xs="5">
-            <Card style={{ height: "20rem" }}>
+            <Card style={{ height: '20rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
-                  <i className="tim-icons icon-single-02 text-secondary" />{" "}
-                  Datos Personales
+                  <i className="tim-icons icon-single-02 text-secondary" /> Datos Personales
                 </CardTitle>
               </CardHeader>
               <CardBody>
                 <Row>
                   <Col xs="5" className="text-center">
-                    <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                      <img
-                        alt="..."
-                        className="image-rounded"
-                        src={require("assets/img/jsisques.jpeg")}
-                      />
+                    <a href="#pablo" onClick={e => e.preventDefault()}>
+                      <img alt="..." className="image-rounded" src={require('assets/img/jsisques.jpeg')} />
                     </a>
                   </Col>
                   <Col xs="7">
@@ -76,12 +71,7 @@ function CurriculumVitae(props) {
                         <i className="tim-icons text-secondary icon-mobile" />
                       </Col>
                       <Col className="font-icon-list" xs="11">
-                        <a
-                          href="tel:+34659761003"
-                          target="_blank"
-                          rel="noreferrer"
-                          onClick={(e) => e.preventDefault()}
-                        >
+                        <a href="tel:+34659761003" target="_blank" rel="noreferrer" onClick={e => e.preventDefault()}>
                           <p>+34 659 76 10 03</p>
                         </a>
                       </Col>
@@ -91,12 +81,7 @@ function CurriculumVitae(props) {
                         <i className="tim-icons text-secondary icon-single-02" />
                       </Col>
                       <Col className="font-icon-list" xs="11">
-                        <a
-                          href="https://github.com/JSisques"
-                          target="_blank"
-                          rel="noreferrer"
-                          onClick={(e) => e.preventDefault()}
-                        >
+                        <a href="https://github.com/JSisques" target="_blank" rel="noreferrer" onClick={e => e.preventDefault()}>
                           <p>JSisques</p>
                         </a>
                       </Col>
@@ -110,7 +95,7 @@ function CurriculumVitae(props) {
                           href="https://www.linkedin.com/in/javier-plaza-sisqu%C3%A9s-b79367172/"
                           target="_blank"
                           rel="noreferrer"
-                          onClick={(e) => e.preventDefault()}
+                          onClick={e => e.preventDefault()}
                         >
                           <p>Javier Plaza Sisqués</p>
                         </a>
@@ -122,11 +107,10 @@ function CurriculumVitae(props) {
             </Card>
           </Col>
           <Col xs="7">
-            <Card style={{ height: "20rem" }}>
+            <Card style={{ height: '20rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
-                  <i className="tim-icons icon-single-02 text-secondary" />{" "}
-                  Estudios
+                  <i className="tim-icons icon-single-02 text-secondary" /> Estudios
                 </CardTitle>
               </CardHeader>
               <CardBody>
@@ -273,25 +257,21 @@ function CurriculumVitae(props) {
         </Row>
         <Row>
           <Col lg="8">
-            <Card style={{ height: "25rem" }}>
+            <Card style={{ height: '25rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
-                  <i className="tim-icons icon-bell-55 text-secondary" />{" "}
-                  Experiencia
+                  <i className="tim-icons icon-bell-55 text-secondary" /> Experiencia
                 </CardTitle>
               </CardHeader>
               <CardBody>
                 <div className="chart-area">
-                  <Line
-                    data={chartExample2.data}
-                    options={chartExample2.options}
-                  />
+                  <Line data={chartExample2.data} options={chartExample2.options} />
                 </div>
               </CardBody>
             </Card>
           </Col>
           <Col lg="4">
-            <Card style={{ height: "25rem" }}>
+            <Card style={{ height: '25rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
                   <i className="tim-icons icon-send text-secondary" /> Lenguajes
@@ -314,12 +294,7 @@ function CurriculumVitae(props) {
                         <Row>
                           <p>
                             <small className="text-muted">
-                              <a
-                                href="https://github.com/JSisquesDev/Dashboard"
-                                target="_blank"
-                                rel="noreferrer"
-                                className="text-secondary"
-                              >
+                              <a href="https://github.com/JSisquesDev/Dashboard" target="_blank" rel="noreferrer" className="text-secondary">
                                 <i>Enlace al proyecto</i>
                               </a>
                             </small>
@@ -343,12 +318,7 @@ function CurriculumVitae(props) {
                         <Row>
                           <p>
                             <small className="text-muted">
-                              <a
-                                href="https://github.com/JSisquesDev/IA-Stock-Predictor"
-                                target="_blank"
-                                rel="noreferrer"
-                                className="text-secondary"
-                              >
+                              <a href="https://github.com/JSisquesDev/IA-Stock-Predictor" target="_blank" rel="noreferrer" className="text-secondary">
                                 <i>Enlace al proyecto</i>
                               </a>
                             </small>
@@ -364,11 +334,10 @@ function CurriculumVitae(props) {
         </Row>
         <Row>
           <Col lg="8">
-            <Card style={{ height: "25rem" }}>
+            <Card style={{ height: '25rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
-                  <i className="tim-icons icon-bell-55 text-secondary" />{" "}
-                  Proyectos
+                  <i className="tim-icons icon-bell-55 text-secondary" /> Proyectos
                 </CardTitle>
               </CardHeader>
               <CardBody>
@@ -388,12 +357,7 @@ function CurriculumVitae(props) {
                         <Row>
                           <p>
                             <small className="text-muted">
-                              <a
-                                href="https://github.com/JSisquesDev/Dashboard"
-                                target="_blank"
-                                rel="noreferrer"
-                                className="text-secondary"
-                              >
+                              <a href="https://github.com/JSisquesDev/Dashboard" target="_blank" rel="noreferrer" className="text-secondary">
                                 <i>Enlace al proyecto</i>
                               </a>
                             </small>
@@ -417,12 +381,7 @@ function CurriculumVitae(props) {
                         <Row>
                           <p>
                             <small className="text-muted">
-                              <a
-                                href="https://github.com/JSisquesDev/IA-Stock-Predictor"
-                                target="_blank"
-                                rel="noreferrer"
-                                className="text-secondary"
-                              >
+                              <a href="https://github.com/JSisquesDev/IA-Stock-Predictor" target="_blank" rel="noreferrer" className="text-secondary">
                                 <i>Enlace al proyecto</i>
                               </a>
                             </small>
@@ -449,12 +408,7 @@ function CurriculumVitae(props) {
                         <Row>
                           <p>
                             <small className="text-muted">
-                              <a
-                                href="#"
-                                target="_blank"
-                                rel="noreferrer"
-                                className="text-secondary"
-                              >
+                              <a href="#" target="_blank" rel="noreferrer" className="text-secondary">
                                 <i>Enlace al proyecto</i>
                               </a>
                             </small>
@@ -478,12 +432,7 @@ function CurriculumVitae(props) {
                         <Row>
                           <p>
                             <small className="text-muted">
-                              <a
-                                href="#"
-                                target="_blank"
-                                rel="noreferrer"
-                                className="text-secondary"
-                              >
+                              <a href="#" target="_blank" rel="noreferrer" className="text-secondary">
                                 <i>Enlace al proyecto</i>
                               </a>
                             </small>
@@ -497,7 +446,7 @@ function CurriculumVitae(props) {
             </Card>
           </Col>
           <Col lg="4">
-            <Card style={{ height: "25rem" }}>
+            <Card style={{ height: '25rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
                   <i className="tim-icons icon-send text-secondary" /> Programas
@@ -505,10 +454,7 @@ function CurriculumVitae(props) {
               </CardHeader>
               <CardBody>
                 <div className="chart-area">
-                  <Line
-                    data={chartExample4.data}
-                    options={chartExample4.options}
-                  />
+                  <Line data={chartExample4.data} options={chartExample4.options} />
                 </div>
               </CardBody>
             </Card>
@@ -516,11 +462,10 @@ function CurriculumVitae(props) {
         </Row>
         <Row>
           <Col lg="3">
-            <Card style={{ height: "25rem" }}>
+            <Card style={{ height: '25rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
-                  <i className="tim-icons icon-bell-55 text-secondary" />{" "}
-                  Idiomas
+                  <i className="tim-icons icon-bell-55 text-secondary" /> Idiomas
                 </CardTitle>
               </CardHeader>
               <CardBody>
@@ -558,11 +503,10 @@ function CurriculumVitae(props) {
             </Card>
           </Col>
           <Col lg="3">
-            <Card style={{ height: "25rem" }}>
+            <Card style={{ height: '25rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
-                  <i className="tim-icons icon-bell-55 text-secondary" />{" "}
-                  Premios
+                  <i className="tim-icons icon-bell-55 text-secondary" /> Premios
                 </CardTitle>
               </CardHeader>
               <CardBody>
@@ -615,10 +559,7 @@ function CurriculumVitae(props) {
                       <h4 className="title">1º premio al mejor PBS</h4>
                     </Row>
                     <Row>
-                      <p>
-                        (Project Based School) de ciclos formativos de grado
-                        superior
-                      </p>
+                      <p>(Project Based School) de ciclos formativos de grado superior</p>
                     </Row>
                     <Row>
                       <p>
@@ -633,7 +574,7 @@ function CurriculumVitae(props) {
             </Card>
           </Col>
           <Col lg="3">
-            <Card style={{ height: "25rem" }}>
+            <Card style={{ height: '25rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
                   <i className="tim-icons icon-bell-55 text-secondary" /> Otros
@@ -671,11 +612,10 @@ function CurriculumVitae(props) {
             </Card>
           </Col>
           <Col lg="3">
-            <Card style={{ height: "25rem" }}>
+            <Card style={{ height: '25rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
-                  <i className="tim-icons icon-bell-55 text-secondary" /> Sobre
-                  Mi
+                  <i className="tim-icons icon-bell-55 text-secondary" /> Sobre Mi
                 </CardTitle>
               </CardHeader>
               <CardBody>
