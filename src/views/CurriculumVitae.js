@@ -286,19 +286,10 @@ function CurriculumVitae(props) {
                       </Col>
                       <Col md="10">
                         <Row>
-                          <h4 className="title">Titulo</h4>
+                          <h4 className="title">C#</h4>
                         </Row>
                         <Row>
                           <p>Descripción</p>
-                        </Row>
-                        <Row>
-                          <p>
-                            <small className="text-muted">
-                              <a href="https://github.com/JSisquesDev/Dashboard" target="_blank" rel="noreferrer" className="text-secondary">
-                                <i>Enlace al proyecto</i>
-                              </a>
-                            </small>
-                          </p>
                         </Row>
                       </Col>
                     </Row>
@@ -310,19 +301,76 @@ function CurriculumVitae(props) {
                       </Col>
                       <Col md="10">
                         <Row>
-                          <h4 className="title">Stock Predictor</h4>
+                          <h4 className="title">Python</h4>
                         </Row>
                         <Row>
                           <p>Descripción</p>
                         </Row>
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row>
+                <br></br>
+                <Row>
+                  <Col>
+                    <Row>
+                      <Col className="text-center" md="2">
+                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      </Col>
+                      <Col md="10">
                         <Row>
-                          <p>
-                            <small className="text-muted">
-                              <a href="https://github.com/JSisquesDev/IA-Stock-Predictor" target="_blank" rel="noreferrer" className="text-secondary">
-                                <i>Enlace al proyecto</i>
-                              </a>
-                            </small>
-                          </p>
+                          <h4 className="title">JavaScript</h4>
+                        </Row>
+                        <Row>
+                          <p>Descripción</p>
+                        </Row>
+                      </Col>
+                    </Row>
+                  </Col>
+                  <Col>
+                    <Row>
+                      <Col className="text-center" md="2">
+                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      </Col>
+                      <Col md="10">
+                        <Row>
+                          <h4 className="title">Java</h4>
+                        </Row>
+                        <Row>
+                          <p>Descripción</p>
+                        </Row>
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row>
+                <br></br>
+                <Row>
+                  <Col>
+                    <Row>
+                      <Col className="text-center" md="2">
+                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      </Col>
+                      <Col md="10">
+                        <Row>
+                          <h4 className="title">SQL</h4>
+                        </Row>
+                        <Row>
+                          <p>Descripción</p>
+                        </Row>
+                      </Col>
+                    </Row>
+                  </Col>
+                  <Col>
+                    <Row>
+                      <Col className="text-center" md="2">
+                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      </Col>
+                      <Col md="10">
+                        <Row>
+                          <h4 className="title">React</h4>
+                        </Row>
+                        <Row>
+                          <p>Descripción</p>
                         </Row>
                       </Col>
                     </Row>
@@ -354,15 +402,6 @@ function CurriculumVitae(props) {
                         <Row>
                           <p>Descripción</p>
                         </Row>
-                        <Row>
-                          <p>
-                            <small className="text-muted">
-                              <a href="https://github.com/JSisquesDev/Dashboard" target="_blank" rel="noreferrer" className="text-secondary">
-                                <i>Enlace al proyecto</i>
-                              </a>
-                            </small>
-                          </p>
-                        </Row>
                       </Col>
                     </Row>
                   </Col>
@@ -377,15 +416,6 @@ function CurriculumVitae(props) {
                         </Row>
                         <Row>
                           <p>Descripción</p>
-                        </Row>
-                        <Row>
-                          <p>
-                            <small className="text-muted">
-                              <a href="https://github.com/JSisquesDev/IA-Stock-Predictor" target="_blank" rel="noreferrer" className="text-secondary">
-                                <i>Enlace al proyecto</i>
-                              </a>
-                            </small>
-                          </p>
                         </Row>
                       </Col>
                     </Row>
