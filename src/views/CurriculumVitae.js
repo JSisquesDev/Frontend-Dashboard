@@ -15,6 +15,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
+import { backgroundColors } from "contexts/BackgroundColorContext";
 import React from "react";
 // nodejs library that concatenates classes
 // react plugin used to create charts
@@ -34,7 +35,10 @@ function CurriculumVitae(props) {
           <Col xs="5">
             <Card style={{ height: "20rem" }}>
               <CardHeader>
-                <h5 className="card-category">Datos Personales</h5>
+                <CardTitle tag="h4">
+                  <i className="tim-icons icon-single-02 text-secondary" />{" "}
+                  Datos Personales
+                </CardTitle>
               </CardHeader>
               <CardBody>
                 <Row>
@@ -61,7 +65,7 @@ function CurriculumVitae(props) {
                     </Row>
                     <Row>
                       <Col className="font-icon-list" xs="0">
-                        <i className="tim-icons icon-email-85" />
+                        <i className="tim-icons text-secondary icon-email-85" />
                       </Col>
                       <Col className="font-icon-list" xs="11">
                         <p>javierplazasisques@gmail.com</p>
@@ -69,11 +73,13 @@ function CurriculumVitae(props) {
                     </Row>
                     <Row>
                       <Col className="font-icon-list" xs="0">
-                        <i className="tim-icons icon-mobile" />
+                        <i className="tim-icons text-secondary icon-mobile" />
                       </Col>
                       <Col className="font-icon-list" xs="11">
                         <a
                           href="tel:+34659761003"
+                          target="_blank"
+                          rel="noreferrer"
                           onClick={(e) => e.preventDefault()}
                         >
                           <p>+34 659 76 10 03</p>
@@ -82,11 +88,13 @@ function CurriculumVitae(props) {
                     </Row>
                     <Row>
                       <Col className="font-icon-list" xs="0">
-                        <i className="tim-icons icon-single-02" />
+                        <i className="tim-icons text-secondary icon-single-02" />
                       </Col>
                       <Col className="font-icon-list" xs="11">
                         <a
                           href="https://github.com/JSisques"
+                          target="_blank"
+                          rel="noreferrer"
                           onClick={(e) => e.preventDefault()}
                         >
                           <p>JSisques</p>
@@ -95,11 +103,13 @@ function CurriculumVitae(props) {
                     </Row>
                     <Row>
                       <Col className="font-icon-list" xs="0">
-                        <i className="tim-icons icon-single-02" />
+                        <i className="tim-icons text-secondary icon-single-02" />
                       </Col>
                       <Col className="font-icon-list" xs="11">
                         <a
                           href="https://www.linkedin.com/in/javier-plaza-sisqu%C3%A9s-b79367172/"
+                          target="_blank"
+                          rel="noreferrer"
                           onClick={(e) => e.preventDefault()}
                         >
                           <p>Javier Plaza Sisqués</p>
@@ -114,53 +124,147 @@ function CurriculumVitae(props) {
           <Col xs="7">
             <Card style={{ height: "20rem" }}>
               <CardHeader>
-                <h5 className="card-category">Estudios</h5>
+                <CardTitle tag="h4">
+                  <i className="tim-icons icon-single-02 text-secondary" />{" "}
+                  Estudios
+                </CardTitle>
               </CardHeader>
               <CardBody>
                 <Row>
-                  <Col lg="4">
-                    <h6>Estudios Generales</h6>
-                    <p>Divina Pastora</p>
-                    <small className="text-muted">
-                      <i>2002-2015</i>
-                    </small>
+                  <Col md="4">
+                    <Row>
+                      <Col className="text-center" lg="2">
+                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      </Col>
+                      <Col lg="10">
+                        <Row>
+                          <h4 className="title">Estudios Generales</h4>
+                        </Row>
+                        <Row>
+                          <p>Divina Pastora</p>
+                        </Row>
+                        <Row>
+                          <p>
+                            <small className="text-muted">
+                              <i>2002-2015</i>
+                            </small>
+                          </p>
+                        </Row>
+                      </Col>
+                    </Row>
                   </Col>
-                  <Col lg="4">
-                    <h6>DAM</h6>
-                    <p>Universidad Europea</p>
-                    <small className="text-muted">
-                      <i>2018-2020</i>
-                    </small>
+                  <Col md="4">
+                    <Row>
+                      <Col className="text-center" lg="2">
+                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      </Col>
+                      <Col lg="10">
+                        <Row>
+                          <h4 className="title">DAM</h4>
+                        </Row>
+                        <Row>
+                          <p>Universidad Europea</p>
+                        </Row>
+                        <Row>
+                          <p>
+                            <small className="text-muted">
+                              <i>2018-2020</i>
+                            </small>
+                          </p>
+                        </Row>
+                      </Col>
+                    </Row>
                   </Col>
-                  <Col lg="4">
-                    <h6>Curso Ciberseguridad</h6>
-                    <p>Incibe</p>
-                    <small className="text-muted">
-                      <i>2016</i>
-                    </small>
+                  <Col md="4">
+                    <Row>
+                      <Col className="text-center" lg="2">
+                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      </Col>
+                      <Col lg="10">
+                        <Row>
+                          <h4 className="title">Curso Ciberseguridad</h4>
+                        </Row>
+                        <Row>
+                          <p>Incibe</p>
+                        </Row>
+                        <Row>
+                          <p>
+                            <small className="text-muted">
+                              <i>2016</i>
+                            </small>
+                          </p>
+                        </Row>
+                      </Col>
+                    </Row>
                   </Col>
                 </Row>
+                <br></br>
                 <Row>
-                  <Col lg="4">
-                    <h6>SMR</h6>
-                    <p>I.E.S. San Andrés</p>
-                    <small className="text-muted">
-                      <i>2016-2018</i>
-                    </small>
+                  <Col md="4">
+                    <Row>
+                      <Col className="text-center" lg="2">
+                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      </Col>
+                      <Col lg="10">
+                        <Row>
+                          <h4 className="title">SMR</h4>
+                        </Row>
+                        <Row>
+                          <p>I.E.S. San Andrés</p>
+                        </Row>
+                        <Row>
+                          <p>
+                            <small className="text-muted">
+                              <i>2016-2018</i>
+                            </small>
+                          </p>
+                        </Row>
+                      </Col>
+                    </Row>
                   </Col>
-                  <Col lg="4">
-                    <h6>Ingeniería Informática</h6>
-                    <p>Universidad Europea</p>
-                    <small className="text-muted">
-                      <i>2020-Actualmente</i>
-                    </small>
+                  <Col md="4">
+                    <Row>
+                      <Col className="text-center" lg="2">
+                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      </Col>
+                      <Col lg="10">
+                        <Row>
+                          <h4 className="title">Ingeniería Informática</h4>
+                        </Row>
+                        <Row>
+                          <p>Universidad Europea</p>
+                        </Row>
+                        <Row>
+                          <p>
+                            <small className="text-muted">
+                              <i>2020-Actualmente</i>
+                            </small>
+                          </p>
+                        </Row>
+                      </Col>
+                    </Row>
                   </Col>
-                  <Col lg="4">
-                    <h6>NDG Linux Essentials</h6>
-                    <p>Cisco</p>
-                    <small className="text-muted">
-                      <i>2019</i>
-                    </small>
+                  <Col md="4">
+                    <Row>
+                      <Col className="text-center" lg="2">
+                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      </Col>
+                      <Col lg="10">
+                        <Row>
+                          <h4 className="title">NDG Linux Essentials</h4>
+                        </Row>
+                        <Row>
+                          <p>Cisco</p>
+                        </Row>
+                        <Row>
+                          <p>
+                            <small className="text-muted">
+                              <i>2019</i>
+                            </small>
+                          </p>
+                        </Row>
+                      </Col>
+                    </Row>
                   </Col>
                 </Row>
               </CardBody>
@@ -169,11 +273,11 @@ function CurriculumVitae(props) {
         </Row>
         <Row>
           <Col lg="8">
-            <Card style={{ height: "20rem" }}>
+            <Card style={{ height: "25rem" }}>
               <CardHeader>
-                <h5 className="card-category">Experiencia</h5>
-                <CardTitle tag="h3">
-                  <i className="tim-icons icon-bell-55 text-info" /> 763,215
+                <CardTitle tag="h4">
+                  <i className="tim-icons icon-bell-55 text-secondary" />{" "}
+                  Experiencia
                 </CardTitle>
               </CardHeader>
               <CardBody>
@@ -187,11 +291,216 @@ function CurriculumVitae(props) {
             </Card>
           </Col>
           <Col lg="4">
-            <Card style={{ height: "20rem" }}>
+            <Card style={{ height: "25rem" }}>
               <CardHeader>
-                <h5 className="card-category">Lenguajes</h5>
-                <CardTitle tag="h3">
-                  <i className="tim-icons icon-send text-success" /> 12,100K
+                <CardTitle tag="h4">
+                  <i className="tim-icons icon-send text-secondary" /> Lenguajes
+                </CardTitle>
+              </CardHeader>
+              <CardBody>
+                <Row>
+                  <Col>
+                    <Row>
+                      <Col className="text-center" md="2">
+                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      </Col>
+                      <Col md="10">
+                        <Row>
+                          <h4 className="title">Titulo</h4>
+                        </Row>
+                        <Row>
+                          <p>Descripción</p>
+                        </Row>
+                        <Row>
+                          <p>
+                            <small className="text-muted">
+                              <a
+                                href="https://github.com/JSisquesDev/Dashboard"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-secondary"
+                              >
+                                <i>Enlace al proyecto</i>
+                              </a>
+                            </small>
+                          </p>
+                        </Row>
+                      </Col>
+                    </Row>
+                  </Col>
+                  <Col>
+                    <Row>
+                      <Col className="text-center" md="2">
+                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      </Col>
+                      <Col md="10">
+                        <Row>
+                          <h4 className="title">Stock Predictor</h4>
+                        </Row>
+                        <Row>
+                          <p>Descripción</p>
+                        </Row>
+                        <Row>
+                          <p>
+                            <small className="text-muted">
+                              <a
+                                href="https://github.com/JSisquesDev/IA-Stock-Predictor"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-secondary"
+                              >
+                                <i>Enlace al proyecto</i>
+                              </a>
+                            </small>
+                          </p>
+                        </Row>
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row>
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
+        <Row>
+          <Col lg="8">
+            <Card style={{ height: "25rem" }}>
+              <CardHeader>
+                <CardTitle tag="h4">
+                  <i className="tim-icons icon-bell-55 text-secondary" />{" "}
+                  Proyectos
+                </CardTitle>
+              </CardHeader>
+              <CardBody>
+                <Row>
+                  <Col>
+                    <Row>
+                      <Col className="text-center" lg="1">
+                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      </Col>
+                      <Col lg="11">
+                        <Row>
+                          <h4 className="title">Titulo</h4>
+                        </Row>
+                        <Row>
+                          <p>Descripción</p>
+                        </Row>
+                        <Row>
+                          <p>
+                            <small className="text-muted">
+                              <a
+                                href="https://github.com/JSisquesDev/Dashboard"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-secondary"
+                              >
+                                <i>Enlace al proyecto</i>
+                              </a>
+                            </small>
+                          </p>
+                        </Row>
+                      </Col>
+                    </Row>
+                  </Col>
+                  <Col>
+                    <Row>
+                      <Col className="text-center" lg="1">
+                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      </Col>
+                      <Col lg="11">
+                        <Row>
+                          <h4 className="title">Stock Predictor</h4>
+                        </Row>
+                        <Row>
+                          <p>Descripción</p>
+                        </Row>
+                        <Row>
+                          <p>
+                            <small className="text-muted">
+                              <a
+                                href="https://github.com/JSisquesDev/IA-Stock-Predictor"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-secondary"
+                              >
+                                <i>Enlace al proyecto</i>
+                              </a>
+                            </small>
+                          </p>
+                        </Row>
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row>
+                <br></br>
+                <Row>
+                  <Col>
+                    <Row>
+                      <Col className="text-center" lg="1">
+                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      </Col>
+                      <Col lg="11">
+                        <Row>
+                          <h4 className="title">Titulo</h4>
+                        </Row>
+                        <Row>
+                          <p>Descripción</p>
+                        </Row>
+                        <Row>
+                          <p>
+                            <small className="text-muted">
+                              <a
+                                href="#"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-secondary"
+                              >
+                                <i>Enlace al proyecto</i>
+                              </a>
+                            </small>
+                          </p>
+                        </Row>
+                      </Col>
+                    </Row>
+                  </Col>
+                  <Col>
+                    <Row>
+                      <Col className="text-center" lg="1">
+                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      </Col>
+                      <Col lg="11">
+                        <Row>
+                          <h4 className="title">Titulo</h4>
+                        </Row>
+                        <Row>
+                          <p>Descripción</p>
+                        </Row>
+                        <Row>
+                          <p>
+                            <small className="text-muted">
+                              <a
+                                href="#"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-secondary"
+                              >
+                                <i>Enlace al proyecto</i>
+                              </a>
+                            </small>
+                          </p>
+                        </Row>
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col lg="4">
+            <Card style={{ height: "25rem" }}>
+              <CardHeader>
+                <CardTitle tag="h4">
+                  <i className="tim-icons icon-send text-secondary" /> Programas
                 </CardTitle>
               </CardHeader>
               <CardBody>
@@ -206,30 +515,13 @@ function CurriculumVitae(props) {
           </Col>
         </Row>
         <Row>
-          <Col lg="8">
-            <Card style={{ height: "20rem" }}>
-              <CardHeader>
-                <h5 className="card-category">Proyectos</h5>
-                <CardTitle tag="h3">
-                  <i className="tim-icons icon-bell-55 text-info" /> 763,215
-                </CardTitle>
-              </CardHeader>
-              <CardBody>
-                <div className="chart-area">
-                  <Line
-                    data={chartExample2.data}
-                    options={chartExample2.options}
-                  />
-                </div>
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
-        <Row>
           <Col lg="3">
-            <Card style={{ height: "20rem" }}>
+            <Card style={{ height: "25rem" }}>
               <CardHeader>
-                <h5 className="card-category">Idiomas</h5>
+                <CardTitle tag="h4">
+                  <i className="tim-icons icon-bell-55 text-secondary" />{" "}
+                  Idiomas
+                </CardTitle>
               </CardHeader>
               <CardBody>
                 <Row>
@@ -266,54 +558,86 @@ function CurriculumVitae(props) {
             </Card>
           </Col>
           <Col lg="3">
-            <Card style={{ height: "20rem" }}>
+            <Card style={{ height: "25rem" }}>
               <CardHeader>
-                <h5 className="card-category">Premios</h5>
+                <CardTitle tag="h4">
+                  <i className="tim-icons icon-bell-55 text-secondary" />{" "}
+                  Premios
+                </CardTitle>
               </CardHeader>
               <CardBody>
                 <Row>
-                  <Col className="font-icon-list" xs="1">
-                    <i className="tim-icons icon-single-02" />
+                  <Col className="text-center" lg="1">
+                    <i className="tim-icons icon-bell-55 text-secondary" />
                   </Col>
-                  <Col className="font-icon-list">
-                    <p>5ª posición concurso regional programame</p>
-                    <small className="text-muted">
-                      <i>2019</i>
-                    </small>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col className="font-icon-list" xs="1">
-                    <i className="tim-icons icon-single-02" />
-                  </Col>
-                  <Col className="font-icon-list">
-                    <p>Finalista competición nacional programame</p>
-                    <small className="text-muted">
-                      <i>2019</i>
-                    </small>
+                  <Col lg="11">
+                    <Row>
+                      <h4 className="title">5ª Posición</h4>
+                    </Row>
+                    <Row>
+                      <p>5ª posición concurso regional programame</p>
+                    </Row>
+                    <Row>
+                      <p>
+                        <small className="text-muted">
+                          <i>2019</i>
+                        </small>
+                      </p>
+                    </Row>
                   </Col>
                 </Row>
                 <Row>
-                  <Col className="font-icon-list" xs="1">
-                    <i className="tim-icons icon-single-02" />
+                  <Col className="text-center" lg="1">
+                    <i className="tim-icons icon-bell-55 text-secondary" />
                   </Col>
-                  <Col className="font-icon-list">
-                    <p>
-                      1º premio al mejor PBS (Project Based School) de ciclos
-                      formativos de grado superior
-                    </p>
-                    <small className="text-muted">
-                      <i>2019</i>
-                    </small>
+                  <Col lg="11">
+                    <Row>
+                      <h4 className="title">Finalista</h4>
+                    </Row>
+                    <Row>
+                      <p>competición nacional programame</p>
+                    </Row>
+                    <Row>
+                      <p>
+                        <small className="text-muted">
+                          <i>2019</i>
+                        </small>
+                      </p>
+                    </Row>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col className="text-center" lg="1">
+                    <i className="tim-icons icon-bell-55 text-secondary" />
+                  </Col>
+                  <Col lg="11">
+                    <Row>
+                      <h4 className="title">1º premio al mejor PBS</h4>
+                    </Row>
+                    <Row>
+                      <p>
+                        (Project Based School) de ciclos formativos de grado
+                        superior
+                      </p>
+                    </Row>
+                    <Row>
+                      <p>
+                        <small className="text-muted">
+                          <i>2019</i>
+                        </small>
+                      </p>
+                    </Row>
                   </Col>
                 </Row>
               </CardBody>
             </Card>
           </Col>
           <Col lg="3">
-            <Card style={{ height: "20rem" }}>
+            <Card style={{ height: "25rem" }}>
               <CardHeader>
-                <h5 className="card-category">Otros</h5>
+                <CardTitle tag="h4">
+                  <i className="tim-icons icon-bell-55 text-secondary" /> Otros
+                </CardTitle>
               </CardHeader>
               <CardBody>
                 <Row>
@@ -347,9 +671,12 @@ function CurriculumVitae(props) {
             </Card>
           </Col>
           <Col lg="3">
-            <Card style={{ height: "20rem" }}>
+            <Card style={{ height: "25rem" }}>
               <CardHeader>
-                <h5 className="card-category">Sobre mi</h5>
+                <CardTitle tag="h4">
+                  <i className="tim-icons icon-bell-55 text-secondary" /> Sobre
+                  Mi
+                </CardTitle>
               </CardHeader>
               <CardBody>
                 <Row>
