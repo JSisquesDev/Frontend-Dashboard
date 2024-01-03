@@ -17,9 +17,11 @@
 */
 import { faCuttlefish, faGithub, faJava, faJsSquare, faLinkedin, faPython, faReact, faUbuntu } from '@fortawesome/free-brands-svg-icons';
 import {
+  faBriefcase,
   faCode,
   faComputer,
   faDatabase,
+  faEarthEurope,
   faEnvelope,
   faGraduationCap,
   faMobile,
@@ -274,13 +276,78 @@ function CurriculumVitae(props) {
             <Card style={{ height: '25rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
-                  <i className="tim-icons icon-bell-55 text-secondary" /> Experiencia
+                  <FontAwesomeIcon icon={faBriefcase} className="tim-icons text-secondary" /> Experiencia
                 </CardTitle>
               </CardHeader>
               <CardBody>
-                <div className="chart-area">
-                  <Line data={chartExample2.data} options={chartExample2.options} />
-                </div>
+                <Row>
+                  <Col md="4">
+                    <Row>
+                      <Col className="text-center text-secondary" lg="2">
+                        <FontAwesomeIcon icon={faSchool} className="tim-icons" />
+                      </Col>
+                      <Col lg="10">
+                        <Row>
+                          <h4 className="title">Estudios Generales</h4>
+                        </Row>
+                        <Row>
+                          <p>Divina Pastora</p>
+                        </Row>
+                        <Row>
+                          <p>
+                            <small className="text-muted">
+                              <i>2002-2015</i>
+                            </small>
+                          </p>
+                        </Row>
+                      </Col>
+                    </Row>
+                  </Col>
+                  <Col md="4">
+                    <Row>
+                      <Col className="text-center text-secondary" lg="2">
+                        <FontAwesomeIcon icon={faCode} className="tim-icons" />
+                      </Col>
+                      <Col lg="10">
+                        <Row>
+                          <h4 className="title">DAM</h4>
+                        </Row>
+                        <Row>
+                          <p>Universidad Europea</p>
+                        </Row>
+                        <Row>
+                          <p>
+                            <small className="text-muted">
+                              <i>2018-2020</i>
+                            </small>
+                          </p>
+                        </Row>
+                      </Col>
+                    </Row>
+                  </Col>
+                  <Col md="4">
+                    <Row>
+                      <Col className="text-center text-secondary" lg="2">
+                        <FontAwesomeIcon icon={faShieldHalved} className="tim-icons" />
+                      </Col>
+                      <Col lg="10">
+                        <Row>
+                          <h4 className="title">Curso Ciberseguridad</h4>
+                        </Row>
+                        <Row>
+                          <p>Incibe</p>
+                        </Row>
+                        <Row>
+                          <p>
+                            <small className="text-muted">
+                              <i>2016</i>
+                            </small>
+                          </p>
+                        </Row>
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row>
               </CardBody>
             </Card>
           </Col>
@@ -509,7 +576,7 @@ function CurriculumVitae(props) {
             <Card style={{ height: '25rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
-                  <i className="tim-icons icon-bell-55 text-secondary" /> Idiomas
+                  <FontAwesomeIcon icon={faEarthEurope} className="tim-icons text-secondary" /> Idiomas
                 </CardTitle>
               </CardHeader>
               <CardBody>
