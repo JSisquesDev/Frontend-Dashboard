@@ -16,10 +16,12 @@
 
 */
 /*eslint-disable*/
-import React from "react";
+import { faGithub, faGithubAlt, faLinkedin, faTiktok } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
 
 // reactstrap components
-import { Container, Nav, NavItem, NavLink } from "reactstrap";
+import { Container, Nav, NavItem, NavLink } from 'reactstrap';
 
 function Footer() {
   return (
@@ -29,15 +31,25 @@ function Footer() {
           <NavItem>
             <NavLink href="https://github.com/JSisquesDev">JSisquesDev</NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink href="https://github.com/JSisques">
+              <FontAwesomeIcon icon={faGithub} />
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="https://www.linkedin.com/in/javier-plaza-sisqu%C3%A9s-b79367172/">
+              <FontAwesomeIcon icon={faLinkedin} />
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="https://www.tiktok.com/@diariodeuntrex">
+              <FontAwesomeIcon icon={faTiktok} />
+            </NavLink>
+          </NavItem>
         </Nav>
         <div className="copyright">
-          © {new Date().getFullYear()} made with{" "}
-          <i className="tim-icons icon-heart-2" /> by{" "}
-          <a
-            href="https://github.com/JSisques"
-            target="_blank"
-            className="text-secondary"
-          >
+          © {new Date().getFullYear()} made with <i className="tim-icons icon-heart-2" /> by{' '}
+          <a href="https://github.com/JSisques" target="_blank" className="text-secondary">
             JSisques
           </a>
         </div>

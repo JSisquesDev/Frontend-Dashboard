@@ -15,6 +15,20 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
+import { faCuttlefish, faGithub, faJava, faJsSquare, faLinkedin, faPython, faReact, faUbuntu } from '@fortawesome/free-brands-svg-icons';
+import {
+  faCode,
+  faComputer,
+  faDatabase,
+  faEnvelope,
+  faGraduationCap,
+  faMobile,
+  faNetworkWired,
+  faSchool,
+  faShieldHalved,
+  faUser,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { backgroundColors } from 'contexts/BackgroundColorContext';
 import React from 'react';
 // nodejs library that concatenates classes
@@ -36,7 +50,7 @@ function CurriculumVitae(props) {
             <Card style={{ height: '20rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
-                  <i className="tim-icons icon-single-02 text-secondary" /> Datos Personales
+                  <FontAwesomeIcon icon={faUser} className="tim-icons text-secondary" /> Datos Personales
                 </CardTitle>
               </CardHeader>
               <CardBody>
@@ -59,16 +73,16 @@ function CurriculumVitae(props) {
                       </h2>
                     </Row>
                     <Row>
-                      <Col className="font-icon-list" xs="0">
-                        <i className="tim-icons text-secondary icon-email-85" />
+                      <Col className="font-icon-list text-secondary" xs="0">
+                        <FontAwesomeIcon icon={faEnvelope} className="tim-icons" />
                       </Col>
                       <Col className="font-icon-list" xs="11">
                         <p>javierplazasisques@gmail.com</p>
                       </Col>
                     </Row>
                     <Row>
-                      <Col className="font-icon-list" xs="0">
-                        <i className="tim-icons text-secondary icon-mobile" />
+                      <Col className="font-icon-list text-secondary" xs="0">
+                        <FontAwesomeIcon icon={faMobile} className="tim-icons" />
                       </Col>
                       <Col className="font-icon-list" xs="11">
                         <a href="tel:+34659761003" target="_blank" rel="noreferrer" onClick={e => e.preventDefault()}>
@@ -77,8 +91,8 @@ function CurriculumVitae(props) {
                       </Col>
                     </Row>
                     <Row>
-                      <Col className="font-icon-list" xs="0">
-                        <i className="tim-icons text-secondary icon-single-02" />
+                      <Col className="font-icon-list text-secondary" xs="0">
+                        <FontAwesomeIcon icon={faGithub} className="tim-icons" />
                       </Col>
                       <Col className="font-icon-list" xs="11">
                         <a href="https://github.com/JSisques" target="_blank" rel="noreferrer" onClick={e => e.preventDefault()}>
@@ -87,8 +101,8 @@ function CurriculumVitae(props) {
                       </Col>
                     </Row>
                     <Row>
-                      <Col className="font-icon-list" xs="0">
-                        <i className="tim-icons text-secondary icon-single-02" />
+                      <Col className="font-icon-list text-secondary" xs="0">
+                        <FontAwesomeIcon icon={faLinkedin} className="tim-icons" />
                       </Col>
                       <Col className="font-icon-list" xs="11">
                         <a
@@ -110,15 +124,15 @@ function CurriculumVitae(props) {
             <Card style={{ height: '20rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
-                  <i className="tim-icons icon-single-02 text-secondary" /> Estudios
+                  <FontAwesomeIcon icon={faGraduationCap} className="tim-icons text-secondary" /> Estudios
                 </CardTitle>
               </CardHeader>
               <CardBody>
                 <Row>
                   <Col md="4">
                     <Row>
-                      <Col className="text-center" lg="2">
-                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      <Col className="text-center text-secondary" lg="2">
+                        <FontAwesomeIcon icon={faSchool} className="tim-icons" />
                       </Col>
                       <Col lg="10">
                         <Row>
@@ -139,8 +153,8 @@ function CurriculumVitae(props) {
                   </Col>
                   <Col md="4">
                     <Row>
-                      <Col className="text-center" lg="2">
-                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      <Col className="text-center text-secondary" lg="2">
+                        <FontAwesomeIcon icon={faCode} className="tim-icons" />
                       </Col>
                       <Col lg="10">
                         <Row>
@@ -161,8 +175,8 @@ function CurriculumVitae(props) {
                   </Col>
                   <Col md="4">
                     <Row>
-                      <Col className="text-center" lg="2">
-                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      <Col className="text-center text-secondary" lg="2">
+                        <FontAwesomeIcon icon={faShieldHalved} className="tim-icons" />
                       </Col>
                       <Col lg="10">
                         <Row>
@@ -186,8 +200,8 @@ function CurriculumVitae(props) {
                 <Row>
                   <Col md="4">
                     <Row>
-                      <Col className="text-center" lg="2">
-                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      <Col className="text-center text-secondary" lg="2">
+                        <FontAwesomeIcon icon={faNetworkWired} className="tim-icons" />
                       </Col>
                       <Col lg="10">
                         <Row>
@@ -208,8 +222,8 @@ function CurriculumVitae(props) {
                   </Col>
                   <Col md="4">
                     <Row>
-                      <Col className="text-center" lg="2">
-                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      <Col className="text-center text-secondary" lg="2">
+                        <FontAwesomeIcon icon={faComputer} className="tim-icons" />
                       </Col>
                       <Col lg="10">
                         <Row>
@@ -230,8 +244,8 @@ function CurriculumVitae(props) {
                   </Col>
                   <Col md="4">
                     <Row>
-                      <Col className="text-center" lg="2">
-                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      <Col className="text-center text-secondary" lg="2">
+                        <FontAwesomeIcon icon={faUbuntu} className="tim-icons" />
                       </Col>
                       <Col lg="10">
                         <Row>
@@ -274,15 +288,15 @@ function CurriculumVitae(props) {
             <Card style={{ height: '25rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
-                  <i className="tim-icons icon-send text-secondary" /> Lenguajes
+                  <FontAwesomeIcon icon={faCode} className="tim-icons text-secondary" /> Lenguajes
                 </CardTitle>
               </CardHeader>
               <CardBody>
                 <Row>
                   <Col>
                     <Row>
-                      <Col className="text-center" md="2">
-                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      <Col className="text-center text-secondary" md="2">
+                        <FontAwesomeIcon icon={faCuttlefish} className="tim-icons" />
                       </Col>
                       <Col md="10">
                         <Row>
@@ -296,8 +310,8 @@ function CurriculumVitae(props) {
                   </Col>
                   <Col>
                     <Row>
-                      <Col className="text-center" md="2">
-                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      <Col className="text-center text-secondary" md="2">
+                        <FontAwesomeIcon icon={faPython} className="tim-icons" />
                       </Col>
                       <Col md="10">
                         <Row>
@@ -314,8 +328,8 @@ function CurriculumVitae(props) {
                 <Row>
                   <Col>
                     <Row>
-                      <Col className="text-center" md="2">
-                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      <Col className="text-center text-secondary" md="2">
+                        <FontAwesomeIcon icon={faJsSquare} className="tim-icons" />
                       </Col>
                       <Col md="10">
                         <Row>
@@ -329,8 +343,8 @@ function CurriculumVitae(props) {
                   </Col>
                   <Col>
                     <Row>
-                      <Col className="text-center" md="2">
-                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      <Col className="text-center text-secondary" md="2">
+                        <FontAwesomeIcon icon={faJava} className="tim-icons" />
                       </Col>
                       <Col md="10">
                         <Row>
@@ -347,8 +361,8 @@ function CurriculumVitae(props) {
                 <Row>
                   <Col>
                     <Row>
-                      <Col className="text-center" md="2">
-                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      <Col className="text-center text-secondary" md="2">
+                        <FontAwesomeIcon icon={faDatabase} className="tim-icons" />
                       </Col>
                       <Col md="10">
                         <Row>
@@ -362,8 +376,8 @@ function CurriculumVitae(props) {
                   </Col>
                   <Col>
                     <Row>
-                      <Col className="text-center" md="2">
-                        <i className="tim-icons icon-bell-55 text-secondary" />
+                      <Col className="text-center text-secondary" md="2">
+                        <FontAwesomeIcon icon={faReact} className="tim-icons" />
                       </Col>
                       <Col md="10">
                         <Row>
