@@ -23,6 +23,8 @@ import React from 'react';
 // reactstrap components
 import { Container, Nav, NavItem, NavLink } from 'reactstrap';
 
+var packageJson = require('../../../package.json');
+
 function Footer() {
   return (
     <footer className="footer">
@@ -46,12 +48,14 @@ function Footer() {
               <FontAwesomeIcon icon={faTiktok} />
             </NavLink>
           </NavItem>
+          <NavItem></NavItem>
         </Nav>
         <div className="copyright">
           © {new Date().getFullYear()} made with <i className="tim-icons icon-heart-2" /> by{' '}
           <a href="https://github.com/JSisques" target="_blank" className="text-secondary">
             JSisques
-          </a>
+          </a>{' '}
+          v{packageJson.version}
         </div>
       </Container>
     </footer>
