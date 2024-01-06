@@ -57,7 +57,7 @@ Si te interesa saber más de mi aquí te dejo mis redes sociales:
 - **Instagram de fotografía:** [@jsisques](https://www.instagram.com/jsisques/)
 - **Instagram personal:** [@diariodeuntrex](https://www.instagram.com/diariodeuntrex/)
 
-## 📋 Control de cambios
+## ➰ Control de cambios
 
 Puedes ver los detalles de todas las actualizaciones y cambios realizados en el archivo [CHANGELOG.md](https://github.com/JSisquesDev/Dashboard/blob/v1.0.0/CHANGELOG.md). El registro de cambios sigue el formato de [Keep a Changelog](https://keepachangelog.com/) para una mejor comprensión de las modificaciones realizadas en la aplicación.
 
