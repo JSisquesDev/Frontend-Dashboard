@@ -10,15 +10,10 @@ env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: docker.io
   # github.repository as <account>/<repo>
-  IMAGE_NAME: ${{ github.repository }}
+  REPOSITORY_NAME: Dashboard
+  USERNAME: ${{ secrets.DOCKER_USERNAME }}
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Testear el contenedor de Docker
-        run: docker-compose up -d
   push_to_registry:
     name: Subir el contenedor al DockerHub
     runs-on: ubuntu-latest
@@ -39,7 +34,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.REGISTRY }}/${{ env.USERNAME }}/${{ env.REPOSITORY_NAME }}
 
       - name: Construir y subir la imagen de Docker
         uses: docker/build-push-action@v2
