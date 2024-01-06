@@ -15,8 +15,6 @@ Este proyecto consiste en una aplicación de tipo dashboard que tiene como objet
 La aplicación se construirá utilizando las siguientes tecnologías:
 
 - **Frontend:** HTML, CSS, JavaScript / React
-- **Backend:** Node.js / Python / Ruby (dependiendo de la preferencia y la necesidad)
-- **Base de Datos:** Se utilizará una base de datos (por ejemplo, MongoDB, PostgreSQL, MySQL) para almacenar la información de los proyectos y el CV.
 
 ## Instalación y Uso
 
