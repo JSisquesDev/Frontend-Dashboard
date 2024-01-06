@@ -9,7 +9,7 @@
     "static/media/fa-brands-400.woff2": "/black-dashboard-react/static/media/fa-brands-400.e033a13ee751afc1860c.woff2",
     "static/media/emilyz.jpg": "/black-dashboard-react/static/media/emilyz.105ff23d3d4b065ca850.jpg",
     "static/media/fa-regular-400.ttf": "/black-dashboard-react/static/media/fa-regular-400.d87474231f4192884802.ttf",
-    "static/media/react-logo.png": "/black-dashboard-react/static/media/react-logo.561f1671ed326d663356.png",
+    "static/media/react-logo.png": "/black-dashboard-react/static/media/logo.561f1671ed326d663356.png",
     "static/media/anime3.png": "/black-dashboard-react/static/media/anime3.4438e5067f2029f9e058.png",
     "static/media/nucleo.eot": "/black-dashboard-react/static/media/nucleo.bd5cce8bf40be5947637.eot",
     "static/media/nucleo.ttf": "/black-dashboard-react/static/media/nucleo.35b08447277ca7bf9f09.ttf",
@@ -22,8 +22,5 @@
     "main.ee0af82c.css.map": "/black-dashboard-react/static/css/main.ee0af82c.css.map",
     "main.bf1b8b3c.js.map": "/black-dashboard-react/static/js/main.bf1b8b3c.js.map"
   },
-  "entrypoints": [
-    "static/css/main.ee0af82c.css",
-    "static/js/main.bf1b8b3c.js"
-  ]
+  "entrypoints": ["static/css/main.ee0af82c.css", "static/js/main.bf1b8b3c.js"]
 }
