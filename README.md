@@ -1,12 +1,66 @@
-# Dashboard
+# 📊 Dashboard
 
-## Docker
+Este proyecto consiste en una aplicación de tipo dashboard que tiene como objetivo principal mostrar proyectos y detalles relevantes sobre mi trayectoria profesional a través de mi Curriculum Vitae (CV). Esta aplicación proporcionará una visión general de los proyectos en los que he trabajado, así como información detallada sobre mi experiencia, habilidades y formación académica.
 
-Para crear la imagen de docker
+## Características principales
 
-docker build -t jsisques/dashboard .
-docker run -it -p 4000:3000 jsisques/dashboard
+- **Gestión de Proyectos:** La aplicación permitirá agregar, editar y eliminar información relacionada con diversos proyectos en los que he participado. Se podrán incluir detalles como el nombre del proyecto, descripción, tecnologías utilizadas, roles desempeñados, enlaces relevantes, entre otros.
 
-Hay que subirla al repo
+- **Visualización del CV:** Se incluirá una sección dedicada a mi Curriculum Vitae, donde se mostrará información detallada sobre mi historial laboral, educación, habilidades técnicas y personales, certificaciones, premios, entre otros datos relevantes.
 
-docker push jsisques/dashboard:latest
+- **Interfaz Intuitiva:** El dashboard contará con una interfaz amigable e intuitiva para navegar fácilmente entre los diferentes proyectos y secciones del CV.
+
+## Tecnologías Utilizadas
+
+La aplicación se construirá utilizando las siguientes tecnologías:
+
+- **Frontend:** HTML, CSS, JavaScript / Framework (por ejemplo, React, Angular, Vue.js)
+- **Backend:** Node.js / Python / Ruby (dependiendo de la preferencia y la necesidad)
+- **Base de Datos:** Se utilizará una base de datos (por ejemplo, MongoDB, PostgreSQL, MySQL) para almacenar la información de los proyectos y el CV.
+
+## Instalación y Uso
+
+A continuación
+
+### ⚛ React
+
+Para ejecutar la aplicación localmente utilizando Docker, sigue estos pasos:
+
+1. Clona este repositorio: `git clone https://github.com/tu-usuario/nombre-repositorio.git`
+2. Accede al directorio de la aplicación: `cd nombre-repositorio`
+3. Instala las dependencias necesarias: `npm install` o `yarn install`
+4. Inicia el servidor: `npm start` o `yarn start`
+5. Accede a la aplicación desde tu navegador web: `http://localhost:3000` (o el puerto configurado)
+
+### 🛳 Docker
+
+Para ejecutar la aplicación localmente utilizando Docker, sigue estos pasos:
+
+1. Clona este repositorio: `git clone https://github.com/tu-usuario/nombre-repositorio.git`
+2. Accede al directorio de la aplicación: `cd nombre-repositorio`
+3. Instala las dependencias necesarias: `npm install` o `yarn install`
+4. Inicia el servidor: `npm start` o `yarn start`
+5. Accede a la aplicación desde tu navegador web: `http://localhost:3000` (o el puerto configurado)
+
+## 📱 Contacto
+
+Si tienes preguntas, sugerencias o simplemente quieres ponerte en contacto conmigo, puedes hacerlo a través de:
+
+- **Correo Electrónico:** [javierplazasisques@gmail.com](javierplazasisques@gmail.com)
+- **Sitio Web:** [www.jsisques.com](https://jsisques.com/)
+
+## 🌍 Redes Sociales
+
+Si te interesa saber más de mi aquí te dejo mis redes sociales:
+
+- **GitHub:** [JSisques](https://github.com/JSisques)
+- **LinkedIn:** [Javier Plaza Sisqués](https://www.linkedin.com/in/javier-plaza-sisqu%C3%A9s-b79367172/)
+- **TikTok:** [@diariodeuntrex](https://www.tiktok.com/@diariodeuntrex)
+- **Instagram de fotografía:** [@jsisques](https://www.instagram.com/jsisques/)
+- **Instagram personal:** [@diariodeuntrex](https://www.instagram.com/diariodeuntrex/)
+
+¡Gracias por tu interés en este proyecto!
+
+## 📋 Licencia
+
+Todo el contenido y los proyectos de esta organización personal se rigen bajo `GNU General Public License v3.0`. Consulta el archivo [LICENSE.md](https://github.com/JSisquesDev/Dashboard/blob/main/LICENSE) para obtener más información.
