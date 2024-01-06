@@ -1,4 +1,4 @@
-# 📊 Dashboard
+# 📊 Frontend Dashboard
 
 Este proyecto consiste en una aplicación de tipo dashboard que tiene como objetivo principal mostrar proyectos y detalles relevantes sobre mi trayectoria profesional a través de mi Curriculum Vitae (CV). Esta aplicación proporcionará una visión general de los proyectos en los que he trabajado, así como información detallada sobre mi experiencia, habilidades y formación académica.
 
