@@ -13,13 +13,6 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-      - name: Construir el contenedor de Docker
-        run: docker-compose build --no-cache --force-rm
   test:
     runs-on: ubuntu-latest
     steps:
