@@ -14,13 +14,13 @@ Este proyecto consiste en una aplicación de tipo dashboard que tiene como objet
 
 La aplicación se construirá utilizando las siguientes tecnologías:
 
-- **Frontend:** HTML, CSS, JavaScript / Framework (por ejemplo, React, Angular, Vue.js)
+- **Frontend:** HTML, CSS, JavaScript / React
 - **Backend:** Node.js / Python / Ruby (dependiendo de la preferencia y la necesidad)
 - **Base de Datos:** Se utilizará una base de datos (por ejemplo, MongoDB, PostgreSQL, MySQL) para almacenar la información de los proyectos y el CV.
 
 ## Instalación y Uso
 
-A continuación
+A continuación bla bla bla
 
 ### ⚛ React
 
@@ -59,7 +59,9 @@ Si te interesa saber más de mi aquí te dejo mis redes sociales:
 - **Instagram de fotografía:** [@jsisques](https://www.instagram.com/jsisques/)
 - **Instagram personal:** [@diariodeuntrex](https://www.instagram.com/diariodeuntrex/)
 
-¡Gracias por tu interés en este proyecto!
+## 📋 Control de cambios
+
+Puedes ver los detalles de todas las actualizaciones y cambios realizados en el archivo [CHANGELOG.md](https://github.com/JSisquesDev/Dashboard/blob/v1.0.0/CHANGELOG.md). El registro de cambios sigue el formato de [Keep a Changelog](https://keepachangelog.com/) para una mejor comprensión de las modificaciones realizadas en la aplicación.
 
 ## 📋 Licencia
 
