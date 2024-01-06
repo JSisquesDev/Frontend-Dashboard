@@ -43,7 +43,11 @@ import { Card, CardHeader, CardBody, CardTitle, Row, Col } from 'reactstrap';
 // core components
 import { chartExample2, chartExample4 } from 'variables/charts.js';
 
+import { useTranslation } from 'react-i18next';
+
 function CurriculumVitae(props) {
+  const { t } = useTranslation();
+
   return (
     <>
       <div className="content">
@@ -126,7 +130,7 @@ function CurriculumVitae(props) {
             <Card style={{ height: '20rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
-                  <FontAwesomeIcon icon={faGraduationCap} className="tim-icons text-secondary" /> Estudios
+                  <FontAwesomeIcon icon={faGraduationCap} className="tim-icons text-secondary" /> {t('common:welcome')} Estudios
                 </CardTitle>
               </CardHeader>
               <CardBody>
