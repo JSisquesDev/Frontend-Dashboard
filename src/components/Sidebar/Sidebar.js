@@ -29,12 +29,16 @@ import { Nav, NavLink as ReactstrapNavLink } from 'reactstrap';
 import { BackgroundColorContext, backgroundColors } from 'contexts/BackgroundColorContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMap } from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from 'react-i18next';
 
 var ps;
 
 function Sidebar(props) {
   const location = useLocation();
   const sidebarRef = React.useRef(null);
+
+  const { t } = useTranslation();
+
   // verifies if routeName is the one active (in browser input)
   const activeRoute = routeName => {
     return location.pathname === routeName ? 'active' : '';
@@ -106,7 +110,7 @@ function Sidebar(props) {
                   <li className={activeRoute(prop.path) + (prop.pro ? ' active-pro' : '')} key={key}>
                     <NavLink to={prop.layout + prop.path} className="nav-link" onClick={props.toggleSidebar}>
                       <i className={prop.icon} />
-                      <p>{prop.name}</p>
+                      <p>{t(prop.name)}</p>
                     </NavLink>
                   </li>
                 );
@@ -114,7 +118,7 @@ function Sidebar(props) {
               <li className="active-pro">
                 <ReactstrapNavLink href="https://www.creative-tim.com/product/black-dashboard-pro-react?ref=bdr-user-archive-sidebar-upgrade-pro">
                   <i className="tim-icons icon-settings-gear-63" />
-                  <p>Settings</p>
+                  <p>{t('settings')}</p>
                 </ReactstrapNavLink>
               </li>
             </Nav>

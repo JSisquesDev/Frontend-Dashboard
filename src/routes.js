@@ -85,7 +85,7 @@ var routes = [
   },
   {
     path: '/stock-predictor',
-    name: 'Stock Predictor',
+    name: 'stock_predictor',
     icon: 'tim-icons icon-chart-bar-32',
     component: <StockPredictor />,
     layout: '/admin',

@@ -31,7 +31,6 @@ import {
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { backgroundColors } from 'contexts/BackgroundColorContext';
 import React from 'react';
 // nodejs library that concatenates classes
 // react plugin used to create charts
@@ -41,7 +40,7 @@ import { Line } from 'react-chartjs-2';
 import { Card, CardHeader, CardBody, CardTitle, Row, Col } from 'reactstrap';
 
 // core components
-import { chartExample2, chartExample4 } from 'variables/charts.js';
+import { chartExample4 } from 'variables/charts.js';
 
 import { useTranslation } from 'react-i18next';
 
@@ -56,7 +55,7 @@ function CurriculumVitae(props) {
             <Card style={{ height: '20rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
-                  <FontAwesomeIcon icon={faUser} className="tim-icons text-secondary" /> Datos Personales
+                  <FontAwesomeIcon icon={faUser} className="tim-icons text-secondary" /> {t('personal_data')}
                 </CardTitle>
               </CardHeader>
               <CardBody>
@@ -130,7 +129,7 @@ function CurriculumVitae(props) {
             <Card style={{ height: '20rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
-                  <FontAwesomeIcon icon={faGraduationCap} className="tim-icons text-secondary" /> {t('common:welcome')} Estudios
+                  <FontAwesomeIcon icon={faGraduationCap} className="tim-icons text-secondary" /> {t('studies')}
                 </CardTitle>
               </CardHeader>
               <CardBody>
@@ -280,7 +279,7 @@ function CurriculumVitae(props) {
             <Card style={{ height: '25rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
-                  <FontAwesomeIcon icon={faBriefcase} className="tim-icons text-secondary" /> Experiencia
+                  <FontAwesomeIcon icon={faBriefcase} className="tim-icons text-secondary" /> {t('experience')}
                 </CardTitle>
               </CardHeader>
               <CardBody>
@@ -359,7 +358,7 @@ function CurriculumVitae(props) {
             <Card style={{ height: '25rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
-                  <FontAwesomeIcon icon={faCode} className="tim-icons text-secondary" /> Lenguajes
+                  <FontAwesomeIcon icon={faCode} className="tim-icons text-secondary" /> {t('languages')}
                 </CardTitle>
               </CardHeader>
               <CardBody>
@@ -470,7 +469,7 @@ function CurriculumVitae(props) {
             <Card style={{ height: '25rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
-                  <i className="tim-icons icon-bell-55 text-secondary" /> Proyectos
+                  <i className="tim-icons icon-bell-55 text-secondary" /> {t('projects')}
                 </CardTitle>
               </CardHeader>
               <CardBody>
@@ -564,7 +563,7 @@ function CurriculumVitae(props) {
             <Card style={{ height: '25rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
-                  <i className="tim-icons icon-send text-secondary" /> Programas
+                  <i className="tim-icons icon-send text-secondary" /> {t('programs')}
                 </CardTitle>
               </CardHeader>
               <CardBody>
@@ -580,7 +579,7 @@ function CurriculumVitae(props) {
             <Card style={{ height: '25rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
-                  <FontAwesomeIcon icon={faEarthEurope} className="tim-icons text-secondary" /> Idiomas
+                  <FontAwesomeIcon icon={faEarthEurope} className="tim-icons text-secondary" /> {t('idioms')}
                 </CardTitle>
               </CardHeader>
               <CardBody>
@@ -621,7 +620,7 @@ function CurriculumVitae(props) {
             <Card style={{ height: '25rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
-                  <i className="tim-icons icon-bell-55 text-secondary" /> Premios
+                  <i className="tim-icons icon-bell-55 text-secondary" /> {t('awards')}
                 </CardTitle>
               </CardHeader>
               <CardBody>
@@ -692,7 +691,7 @@ function CurriculumVitae(props) {
             <Card style={{ height: '25rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
-                  <i className="tim-icons icon-bell-55 text-secondary" /> Otros
+                  <i className="tim-icons icon-bell-55 text-secondary" /> {t('others')}
                 </CardTitle>
               </CardHeader>
               <CardBody>
@@ -730,7 +729,7 @@ function CurriculumVitae(props) {
             <Card style={{ height: '25rem' }}>
               <CardHeader>
                 <CardTitle tag="h4">
-                  <i className="tim-icons icon-bell-55 text-secondary" /> Sobre Mi
+                  <i className="tim-icons icon-bell-55 text-secondary" /> {t('about_me')}
                 </CardTitle>
               </CardHeader>
               <CardBody>
