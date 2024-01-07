@@ -115,12 +115,6 @@ function Sidebar(props) {
                   </li>
                 );
               })}
-              <li className="active-pro">
-                <ReactstrapNavLink href="https://www.creative-tim.com/product/black-dashboard-pro-react?ref=bdr-user-archive-sidebar-upgrade-pro">
-                  <i className="tim-icons icon-settings-gear-63" />
-                  <p>{t('settings')}</p>
-                </ReactstrapNavLink>
-              </li>
             </Nav>
           </div>
         </div>

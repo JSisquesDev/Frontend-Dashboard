@@ -5,7 +5,8 @@ const es = {
   welcome: 'Bienvenido',
   change_language: 'Cambiar Idioma',
 
-  //Sidevar Menu
+  //Sidebar Menu
+  home: 'Inicio',
   curriculum_vitae: 'Curriculum Vitae',
   stock_predictor: 'Predictor de Stock',
   settings: 'Configuración',

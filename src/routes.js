@@ -29,6 +29,14 @@ import UserProfile from 'views/UserProfile.js';
 var routes = [
   {
     path: '/dashboard',
+    name: 'home',
+    icon: 'tim-icons icon-chart-pie-36',
+    component: <Dashboard />,
+    layout: '/admin',
+  },
+  /*
+  {
+    path: '/dashboard',
     name: 'Dashboard',
     icon: 'tim-icons icon-chart-pie-36',
     component: <Dashboard />,
@@ -76,9 +84,10 @@ var routes = [
     component: <Typography />,
     layout: '/admin',
   },
+  */
   {
     path: '/curriculum-vitae',
-    name: 'Curriculum Vitae',
+    name: 'curriculum_vitae',
     icon: 'tim-icons icon-paper',
     component: <CurriculumVitae />,
     layout: '/admin',

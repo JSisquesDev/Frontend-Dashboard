@@ -6,6 +6,7 @@ const en = {
   change_language: 'Change Language',
 
   //Sidebar Menu
+  home: 'Home',
   curriculum_vitae: 'Curriculum Vitae',
   stock_predictor: 'Stock Predictor',
   settings: 'Settings',
