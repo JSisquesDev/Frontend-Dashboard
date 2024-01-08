@@ -22,6 +22,10 @@ const es = {
   awards: 'Premios',
   others: 'Otros',
   about_me: 'Sobre Mi',
+
+  // Footer
+  made_with: 'Hecho Con',
+  by: 'Por',
 };
 
 export default es;

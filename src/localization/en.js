@@ -22,6 +22,10 @@ const en = {
   awards: 'Premios',
   others: 'Others',
   about_me: 'About Me',
+
+  // Footer
+  made_with: 'Made With',
+  by: 'By',
 };
 
 export default en;
