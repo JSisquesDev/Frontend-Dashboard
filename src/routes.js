@@ -17,6 +17,7 @@
 */
 import CurriculumVitae from 'views/CurriculumVitae';
 import Dashboard from 'views/Dashboard.js';
+import Home from 'views/Home';
 import Icons from 'views/Icons.js';
 import Map from 'views/Map.js';
 import Notifications from 'views/Notifications.js';
@@ -28,10 +29,10 @@ import UserProfile from 'views/UserProfile.js';
 
 var routes = [
   {
-    path: '/dashboard',
+    path: '/home',
     name: 'home',
     icon: 'tim-icons icon-chart-pie-36',
-    component: <Dashboard />,
+    component: <Home />,
     layout: '/admin',
   },
   /*
