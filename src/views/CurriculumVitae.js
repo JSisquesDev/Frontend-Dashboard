@@ -45,13 +45,13 @@ import { chartExample4 } from 'variables/charts.js';
 import { useTranslation } from 'react-i18next';
 
 import axios from '../settings/axios';
-import Skeleton from 'react-loading-skeleton';
+import CircleProgress from 'components/Charts/CircleProgress';
 
 function CurriculumVitae(props) {
   const { t } = useTranslation();
 
   const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState();
+  const [curriculumVitae, setCurriculumVitae] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -60,8 +60,9 @@ function CurriculumVitae(props) {
         .get()
         .then(function (response) {
           // handle success
-          console.log(response.data);
-          setData(response.data);
+          const json = response.data;
+
+          setCurriculumVitae(json);
           setIsLoading(false);
         })
         .catch(function (error) {
@@ -100,12 +101,11 @@ function CurriculumVitae(props) {
                     <Col xs="7">
                       <Row>
                         <h2 className="title">
-                          {!isLoading ? data.personalData[0].name : <Skeleton />}
-
+                          {curriculumVitae.personalData[0].name}
                           <br></br>
                           <p>
                             <small className="text-muted">
-                              <i>{data.personalData[0].job}</i>
+                              <i>{curriculumVitae.personalData[0].job}</i>
                             </small>
                           </p>
                         </h2>
@@ -115,7 +115,9 @@ function CurriculumVitae(props) {
                           <FontAwesomeIcon icon={faEnvelope} className="tim-icons" />
                         </Col>
                         <Col className="font-icon-list" xs="11">
-                          <p>javierplazasisques@gmail.com</p>
+                          <a href="mailto:" target="_blank" rel="noreferrer" onClick={e => e.preventDefault()}>
+                            <p>{curriculumVitae.personalData[0].email}</p>
+                          </a>
                         </Col>
                       </Row>
                       <Row>
@@ -124,35 +126,30 @@ function CurriculumVitae(props) {
                         </Col>
                         <Col className="font-icon-list" xs="11">
                           <a href="tel:+34659761003" target="_blank" rel="noreferrer" onClick={e => e.preventDefault()}>
-                            <p>+34 659 76 10 03</p>
+                            <p>{curriculumVitae.personalData[0].phone}</p>
                           </a>
                         </Col>
                       </Row>
-                      <Row>
-                        <Col className="font-icon-list text-secondary" xs="0">
-                          <FontAwesomeIcon icon={faGithub} className="tim-icons" />
-                        </Col>
-                        <Col className="font-icon-list" xs="11">
-                          <a href="https://github.com/JSisques" target="_blank" rel="noreferrer" onClick={e => e.preventDefault()}>
-                            <p>JSisques</p>
-                          </a>
-                        </Col>
-                      </Row>
-                      <Row>
-                        <Col className="font-icon-list text-secondary" xs="0">
-                          <FontAwesomeIcon icon={faLinkedin} className="tim-icons" />
-                        </Col>
-                        <Col className="font-icon-list" xs="11">
-                          <a
-                            href="https://www.linkedin.com/in/javier-plaza-sisqu%C3%A9s-b79367172/"
-                            target="_blank"
-                            rel="noreferrer"
-                            onClick={e => e.preventDefault()}
-                          >
-                            <p>Javier Plaza Sisqués</p>
-                          </a>
-                        </Col>
-                      </Row>
+                      {curriculumVitae.socialMedia.map((media, i) => {
+                        const url = media.url;
+                        const name = media.name;
+                        const icon = media.icon;
+
+                        return (
+                          <>
+                            <Row>
+                              <Col className="font-icon-list text-secondary" xs="0">
+                                <FontAwesomeIcon icon={faGithub} className="tim-icons" />
+                              </Col>
+                              <Col className="font-icon-list" xs="11">
+                                <a href={url} target="_blank" rel="noreferrer" onClick={e => e.preventDefault()}>
+                                  <p>{name}</p>
+                                </a>
+                              </Col>
+                            </Row>
+                          </>
+                        );
+                      })}
                     </Col>
                   </Row>
                 </CardBody>
@@ -167,141 +164,41 @@ function CurriculumVitae(props) {
                 </CardHeader>
                 <CardBody>
                   <Row>
-                    <Col md="4">
-                      <Row>
-                        <Col className="text-center text-secondary" lg="2">
-                          <FontAwesomeIcon icon={faSchool} className="tim-icons" />
-                        </Col>
-                        <Col lg="10">
-                          <Row>
-                            <h4 className="title">Estudios Generales</h4>
-                          </Row>
-                          <Row>
-                            <p>Divina Pastora</p>
-                          </Row>
-                          <Row>
-                            <p>
-                              <small className="text-muted">
-                                <i>2002-2015</i>
-                              </small>
-                            </p>
-                          </Row>
-                        </Col>
-                      </Row>
-                    </Col>
-                    <Col md="4">
-                      <Row>
-                        <Col className="text-center text-secondary" lg="2">
-                          <FontAwesomeIcon icon={faCode} className="tim-icons" />
-                        </Col>
-                        <Col lg="10">
-                          <Row>
-                            <h4 className="title">DAM</h4>
-                          </Row>
-                          <Row>
-                            <p>Universidad Europea</p>
-                          </Row>
-                          <Row>
-                            <p>
-                              <small className="text-muted">
-                                <i>2018-2020</i>
-                              </small>
-                            </p>
-                          </Row>
-                        </Col>
-                      </Row>
-                    </Col>
-                    <Col md="4">
-                      <Row>
-                        <Col className="text-center text-secondary" lg="2">
-                          <FontAwesomeIcon icon={faShieldHalved} className="tim-icons" />
-                        </Col>
-                        <Col lg="10">
-                          <Row>
-                            <h4 className="title">Curso Ciberseguridad</h4>
-                          </Row>
-                          <Row>
-                            <p>Incibe</p>
-                          </Row>
-                          <Row>
-                            <p>
-                              <small className="text-muted">
-                                <i>2016</i>
-                              </small>
-                            </p>
-                          </Row>
-                        </Col>
-                      </Row>
-                    </Col>
-                  </Row>
-                  <br></br>
-                  <Row>
-                    <Col md="4">
-                      <Row>
-                        <Col className="text-center text-secondary" lg="2">
-                          <FontAwesomeIcon icon={faNetworkWired} className="tim-icons" />
-                        </Col>
-                        <Col lg="10">
-                          <Row>
-                            <h4 className="title">SMR</h4>
-                          </Row>
-                          <Row>
-                            <p>I.E.S. San Andrés</p>
-                          </Row>
-                          <Row>
-                            <p>
-                              <small className="text-muted">
-                                <i>2016-2018</i>
-                              </small>
-                            </p>
-                          </Row>
-                        </Col>
-                      </Row>
-                    </Col>
-                    <Col md="4">
-                      <Row>
-                        <Col className="text-center text-secondary" lg="2">
-                          <FontAwesomeIcon icon={faComputer} className="tim-icons" />
-                        </Col>
-                        <Col lg="10">
-                          <Row>
-                            <h4 className="title">Ingeniería Informática</h4>
-                          </Row>
-                          <Row>
-                            <p>Universidad Europea</p>
-                          </Row>
-                          <Row>
-                            <p>
-                              <small className="text-muted">
-                                <i>2020-Actualmente</i>
-                              </small>
-                            </p>
-                          </Row>
-                        </Col>
-                      </Row>
-                    </Col>
-                    <Col md="4">
-                      <Row>
-                        <Col className="text-center text-secondary" lg="2">
-                          <FontAwesomeIcon icon={faUbuntu} className="tim-icons" />
-                        </Col>
-                        <Col lg="10">
-                          <Row>
-                            <h4 className="title">NDG Linux Essentials</h4>
-                          </Row>
-                          <Row>
-                            <p>Cisco</p>
-                          </Row>
-                          <Row>
-                            <p>
-                              <small className="text-muted">
-                                <i>2019</i>
-                              </small>
-                            </p>
-                          </Row>
-                        </Col>
-                      </Row>
-                    </Col>
+                    {curriculumVitae.studies.map((study, i) => {
+                      const name = study.name;
+                      const location = study.location;
+                      const startYear = study.start_year;
+                      const endYear = study.end_year;
+
+                      return (
+                        <>
+                          <Col md="4">
+                            <Row>
+                              <Col className="text-center text-secondary" md="2">
+                                <FontAwesomeIcon icon={faGraduationCap} className="tim-icons" />
+                              </Col>
+                              <Col md="10">
+                                <Row>
+                                  <h4 className="title">{name}</h4>
+                                </Row>
+                                <Row>
+                                  <p>{location}</p>
+                                </Row>
+                                <Row>
+                                  <p>
+                                    <small className="text-muted">
+                                      <i>
+                                        {startYear}-{endYear}
+                                      </i>
+                                    </small>
+                                  </p>
+                                </Row>
+                              </Col>
+                            </Row>
+                          </Col>
+                        </>
+                      );
+                    })}
                   </Row>
                 </CardBody>
               </Card>
@@ -396,102 +293,28 @@ function CurriculumVitae(props) {
                 </CardHeader>
                 <CardBody>
                   <Row>
-                    <Col>
-                      <Row>
-                        <Col className="text-center text-secondary" md="2">
-                          <FontAwesomeIcon icon={faCuttlefish} className="tim-icons" />
-                        </Col>
-                        <Col md="10">
-                          <Row>
-                            <h4 className="title">C#</h4>
-                          </Row>
-                          <Row>
-                            <p>Descripción</p>
-                          </Row>
-                        </Col>
-                      </Row>
-                    </Col>
-                    <Col>
-                      <Row>
-                        <Col className="text-center text-secondary" md="2">
-                          <FontAwesomeIcon icon={faPython} className="tim-icons" />
-                        </Col>
-                        <Col md="10">
-                          <Row>
-                            <h4 className="title">Python</h4>
-                          </Row>
-                          <Row>
-                            <p>Descripción</p>
-                          </Row>
-                        </Col>
-                      </Row>
-                    </Col>
-                  </Row>
-                  <br></br>
-                  <Row>
-                    <Col>
-                      <Row>
-                        <Col className="text-center text-secondary" md="2">
-                          <FontAwesomeIcon icon={faJsSquare} className="tim-icons" />
-                        </Col>
-                        <Col md="10">
-                          <Row>
-                            <h4 className="title">JavaScript</h4>
-                          </Row>
-                          <Row>
-                            <p>Descripción</p>
-                          </Row>
-                        </Col>
-                      </Row>
-                    </Col>
-                    <Col>
-                      <Row>
-                        <Col className="text-center text-secondary" md="2">
-                          <FontAwesomeIcon icon={faJava} className="tim-icons" />
-                        </Col>
-                        <Col md="10">
-                          <Row>
-                            <h4 className="title">Java</h4>
-                          </Row>
-                          <Row>
-                            <p>Descripción</p>
-                          </Row>
-                        </Col>
-                      </Row>
-                    </Col>
-                  </Row>
-                  <br></br>
-                  <Row>
-                    <Col>
-                      <Row>
-                        <Col className="text-center text-secondary" md="2">
-                          <FontAwesomeIcon icon={faDatabase} className="tim-icons" />
-                        </Col>
-                        <Col md="10">
-                          <Row>
-                            <h4 className="title">SQL</h4>
-                          </Row>
-                          <Row>
-                            <p>Descripción</p>
-                          </Row>
-                        </Col>
-                      </Row>
-                    </Col>
-                    <Col>
-                      <Row>
-                        <Col className="text-center text-secondary" md="2">
-                          <FontAwesomeIcon icon={faReact} className="tim-icons" />
-                        </Col>
-                        <Col md="10">
-                          <Row>
-                            <h4 className="title">React</h4>
-                          </Row>
-                          <Row>
-                            <p>Descripción</p>
-                          </Row>
-                        </Col>
-                      </Row>
-                    </Col>
+                    {curriculumVitae.languages.map((language, i) => {
+                      const name = language.name;
+                      const value = language.value;
+
+                      return (
+                        <>
+                          <Col md="4">
+                            <Row>
+                              <Col className="text-center text-secondary" md="3">
+                                <FontAwesomeIcon icon={faCode} className="tim-icons" />
+                              </Col>
+                              <Col md="9">
+                                <Row>
+                                  <h4 className="title">{name}</h4>
+                                </Row>
+                              </Col>
+                            </Row>
+                            <Row></Row>
+                          </Col>
+                        </>
+                      );
+                    })}
                   </Row>
                 </CardBody>
               </Card>
@@ -592,7 +415,7 @@ function CurriculumVitae(props) {
                 </CardBody>
               </Card>
             </Col>
-            <Col lg="4">
+            <Col md="4">
               <Card style={{ height: '25rem' }}>
                 <CardHeader>
                   <CardTitle tag="h4">
@@ -600,15 +423,38 @@ function CurriculumVitae(props) {
                   </CardTitle>
                 </CardHeader>
                 <CardBody>
-                  <div className="chart-area">
-                    <Line data={chartExample4.data} options={chartExample4.options} />
-                  </div>
+                  <Row>
+                    {curriculumVitae.programs.map((program, i) => {
+                      const name = program.name;
+                      const value = program.value;
+
+                      return (
+                        <>
+                          <Col md="4">
+                            <Row>
+                              <Col className="text-center text-secondary" md="3">
+                                <FontAwesomeIcon icon={faCode} className="tim-icons" />
+                              </Col>
+                              <Col md="9">
+                                <Row>
+                                  <h4 className="title">{name}</h4>
+                                </Row>
+                              </Col>
+                            </Row>
+                            <Row>
+                              <CircleProgress percentage={value} colour={'red'} />
+                            </Row>
+                          </Col>
+                        </>
+                      );
+                    })}
+                  </Row>
                 </CardBody>
               </Card>
             </Col>
           </Row>
           <Row>
-            <Col lg="3">
+            <Col md="3">
               <Card style={{ height: '25rem' }}>
                 <CardHeader>
                   <CardTitle tag="h4">
@@ -728,33 +574,25 @@ function CurriculumVitae(props) {
                   </CardTitle>
                 </CardHeader>
                 <CardBody>
-                  <Row>
-                    <Col>
-                      <h6>Vocal suplente consejo de delegados</h6>
-                      <p>Universidad Europea</p>
-                      <small className="text-muted">
-                        <i>2018-2019</i>
-                      </small>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
-                      <h6>Delegado de clase</h6>
-                      <p>Universidad Europea</p>
-                      <small className="text-muted">
-                        <i>2018-2020</i>
-                      </small>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
-                      <h6>Permiso de conducir</h6>
-                      <p>Código B</p>
-                      <small className="text-muted">
-                        <i>2018</i>
-                      </small>
-                    </Col>
-                  </Row>
+                  {curriculumVitae.others.map((object, i) => {
+                    const name = object.name;
+                    const location = object.location;
+                    const startYear = object.start_year;
+                    const endYear = object.end_year;
+                    return (
+                      <Row>
+                        <Col>
+                          <h6>{name}</h6>
+                          <p>{location}</p>
+                          <small className="text-muted">
+                            <i>
+                              {startYear}-{endYear}
+                            </i>
+                          </small>
+                        </Col>
+                      </Row>
+                    );
+                  })}
                 </CardBody>
               </Card>
             </Col>
@@ -766,30 +604,28 @@ function CurriculumVitae(props) {
                   </CardTitle>
                 </CardHeader>
                 <CardBody>
-                  <Row>
-                    <Col className="font-icon-list" xs="1">
-                      <i className="tim-icons icon-single-02" />
-                    </Col>
-                    <Col className="font-icon-list">
-                      <p>Aprendo y amplio mis conocimientos</p>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col className="font-icon-list" xs="1">
-                      <i className="tim-icons icon-single-02" />
-                    </Col>
-                    <Col className="font-icon-list">
-                      <p>Me gusta trabajar en equipo</p>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col className="font-icon-list" xs="1">
-                      <i className="tim-icons icon-single-02" />
-                    </Col>
-                    <Col className="font-icon-list">
-                      <p>Me gusta resolver todo tipo de problemas</p>
-                    </Col>
-                  </Row>
+                  {curriculumVitae.aboutMe.map((object, i) => {
+                    const name = object.name;
+                    const desc = object.description;
+                    return (
+                      <>
+                        <Row>
+                          <Col className="font-icon-list" md="2">
+                            <i className="tim-icons icon-single-02" />
+                          </Col>
+                          <Col md="10">
+                            <Row>
+                              <h4 className="title">{name}</h4>
+                            </Row>
+                            <Row>
+                              <p>{desc}</p>
+                            </Row>
+                          </Col>
+                        </Row>
+                        <br></br>
+                      </>
+                    );
+                  })}
                 </CardBody>
               </Card>
             </Col>
