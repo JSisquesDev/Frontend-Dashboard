@@ -15,6 +15,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
+import BrainTumor from 'views/BrainTumor';
 import CurriculumVitae from 'views/CurriculumVitae';
 import Dashboard from 'views/Dashboard.js';
 import Home from 'views/Home';
@@ -98,6 +99,13 @@ var routes = [
     name: 'stock_predictor',
     icon: 'tim-icons icon-chart-bar-32',
     component: <StockPredictor />,
+    layout: '/admin',
+  },
+  {
+    path: '/brain-tumor',
+    name: 'brain_tumor',
+    icon: 'tim-icons icon-chart-bar-32',
+    component: <BrainTumor />,
     layout: '/admin',
   },
 ];
