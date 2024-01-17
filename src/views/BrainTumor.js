@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // nodejs library that concatenates classes
 import classNames from 'classnames';
 // react plugin used to create charts
@@ -28,10 +28,13 @@ import { useTranslation } from 'react-i18next';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose, faGear, faUpload } from '@fortawesome/free-solid-svg-icons';
+import { FileUploader } from 'react-drag-drop-files';
 
 function BrainTumor(props) {
   const { t } = useTranslation();
   const [bigChartData, setbigChartData] = React.useState('data1');
+
+  const [file, setFile] = useState();
 
   const setBgChartData = name => {
     setbigChartData(name);
@@ -49,6 +52,11 @@ function BrainTumor(props) {
                 </CardTitle>
               </CardHeader>
               <CardBody>
+                <Row>
+                  <Col md="12">
+                    <FileUploader multiple={true} name="file" type={['jpeg', 'png']} handleChange={file => setFile(file)} />
+                  </Col>
+                </Row>
                 <Row>
                   <Col>
                     <form>
