@@ -25,10 +25,12 @@ import {
 // core components
 import { chartExample1, chartExample2, chartExample3, chartExample4 } from 'variables/charts.js';
 import { useTranslation } from 'react-i18next';
-import ProgressBar from 'react-bootstrap/ProgressBar';
+import { Progress } from 'react-sweet-progress';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose, faGear, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { FileUploader } from 'react-drag-drop-files';
+
+import 'react-sweet-progress/lib/style.css';
 
 function BrainTumor(props) {
   const { t } = useTranslation();
@@ -74,7 +76,16 @@ function BrainTumor(props) {
                   <Col>
                     <p>Ejemplo (80kb)</p>
                     <FontAwesomeIcon className="text-right" icon={faClose}></FontAwesomeIcon>
-                    <ProgressBar variant="info" animated min={0} max={100} now={60} label={'60%'} />
+                    <Progress
+                      percent={80}
+                      status="success"
+                      theme={{
+                        default: {
+                          symbol: '🧠',
+                          color: '#ff8900',
+                        },
+                      }}
+                    />
                   </Col>
                 </Row>
                 <br></br>
@@ -82,7 +93,16 @@ function BrainTumor(props) {
                   <Col>
                     <p>Ejemplo (80kb)</p>
                     <FontAwesomeIcon className="text-right" icon={faClose}></FontAwesomeIcon>
-                    <ProgressBar variant="success" animated min={0} max={100} now={100} label={'100%'} />
+                    <Progress
+                      percent={80}
+                      status="default"
+                      theme={{
+                        default: {
+                          symbol: '🍕',
+                          color: '#ff8900',
+                        },
+                      }}
+                    />
                   </Col>
                 </Row>
                 <br></br>
@@ -90,7 +110,16 @@ function BrainTumor(props) {
                   <Col>
                     <p>Ejemplo (80kb)</p>
                     <FontAwesomeIcon className="text-right" icon={faClose}></FontAwesomeIcon>
-                    <ProgressBar variant="danger" animated min={0} max={100} now={100} label={'100%'} />
+                    <Progress
+                      percent={80}
+                      status="error"
+                      theme={{
+                        default: {
+                          symbol: '🧠',
+                          color: '#ff8900',
+                        },
+                      }}
+                    />
                   </Col>
                 </Row>
               </CardBody>
