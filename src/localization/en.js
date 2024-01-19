@@ -24,6 +24,7 @@ const en = {
   awards: 'Premios',
   others: 'Others',
   about_me: 'About Me',
+  project_link: 'Link to the project',
 
   // Footer
   made_with: 'Made With',

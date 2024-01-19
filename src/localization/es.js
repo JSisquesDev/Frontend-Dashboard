@@ -25,6 +25,7 @@ const es = {
   awards: 'Premios',
   others: 'Otros',
   about_me: 'Sobre Mi',
+  project_link: 'Enlace al proyecto',
 
   // Footer
   made_with: 'Hecho Con',

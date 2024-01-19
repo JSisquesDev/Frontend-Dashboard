@@ -54,7 +54,7 @@ function Footer() {
         </Nav>
         <div className="copyright">
           © {new Date().getFullYear()} {t('made_with').toLowerCase()} <i className="tim-icons icon-heart-2" /> {t('by').toLowerCase()}{' '}
-          <a href="https://github.com/JSisques" target="_blank" className="text-secondary">
+          <a href="https://github.com/JSisques" target="_blank" className="text-primary">
             JSisques
           </a>{' '}
           v{packageJson.version}
