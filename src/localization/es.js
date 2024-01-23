@@ -46,7 +46,8 @@ const es = {
   brain_segmentation_config_checkbox: 'Segmentar en el caso de que exista un tumor',
   brain_segmentation_config_desc: 'La segmentación proporciona...',
   brain_config_download: 'Descargar los resultados generados',
-  brain_config_accept_terms: 'Acepto los terminos y bla bla bla',
+  brain_config_accept_terms:
+    'Al marcar esta casilla, confirmo que he leído y acepto las condiciones y términos para el uso de las fotos proporcionadas con el propósito de entrenar modelos de inteligencia artificial.',
 };
 
 export default es;

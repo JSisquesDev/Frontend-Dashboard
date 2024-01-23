@@ -1,4 +1,5 @@
 const en = {
+  // Common
   username: 'Username',
   password: 'Password',
   login: 'Login',
@@ -45,7 +46,8 @@ const en = {
   brain_segmentation_config_checkbox: 'Segmentar en el caso de que exista un tumor',
   brain_segmentation_config_desc: 'La segmentación proporciona...',
   brain_config_download: 'Download results',
-  brain_config_accept_terms: 'Acepto los terminos y bla bla bla',
+  brain_config_accept_terms:
+    'By checking this box, I confirm that I have read and agree to the terms and conditions for the use of the provided photos for the purpose of training artificial intelligence models.',
 };
 
 export default en;

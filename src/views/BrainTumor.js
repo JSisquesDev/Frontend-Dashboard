@@ -31,16 +31,12 @@ import { faClose, faGear, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { FileUploader } from 'react-drag-drop-files';
 
 import 'react-sweet-progress/lib/style.css';
+import { Divider } from '@mui/material';
 
 function BrainTumor(props) {
   const { t } = useTranslation();
-  const [bigChartData, setbigChartData] = React.useState('data1');
 
   const [file, setFile] = useState();
-
-  const setBgChartData = name => {
-    setbigChartData(name);
-  };
 
   return (
     <>
@@ -50,12 +46,12 @@ function BrainTumor(props) {
             <Card style={{ minHeight: '80vh' }}>
               <CardHeader>
                 <CardTitle tag="h4">
-                  <FontAwesomeIcon className="text-secondary" icon={faUpload} /> {t('brain_upload_files')}
+                  <FontAwesomeIcon className="text-primary" icon={faUpload} /> {t('brain_upload_files')}
                 </CardTitle>
               </CardHeader>
               <CardBody>
                 <Row>
-                  <Col md="12">
+                  <Col>
                     <FileUploader multiple={true} name="file" type={['jpeg', 'png']} handleChange={file => setFile(file)} />
                   </Col>
                 </Row>
@@ -92,7 +88,13 @@ function BrainTumor(props) {
                 <Row>
                   <Col>
                     <p>Ejemplo (80kb)</p>
+                  </Col>
+                  <Col className="text-right">
                     <FontAwesomeIcon className="text-right" icon={faClose}></FontAwesomeIcon>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
                     <Progress
                       percent={80}
                       status="default"
@@ -129,7 +131,7 @@ function BrainTumor(props) {
             <Card style={{ minHeight: '80vh' }}>
               <CardHeader>
                 <CardTitle tag="h4">
-                  <FontAwesomeIcon className="text-secondary" icon={faGear} /> {t('brain_config_prediction')}
+                  <FontAwesomeIcon className="text-primary" icon={faGear} /> {t('brain_config_prediction')}
                 </CardTitle>
               </CardHeader>
               <CardBody>
@@ -153,7 +155,7 @@ function BrainTumor(props) {
                       </Input>
                     </FormGroup>
                     <FormText color="muted">{t('brain_detection_config_desc')}</FormText>
-                    <br></br>
+                    <Divider className="divider" />
                     <Label for="exampleEmail">{t('brain_classification_config_title')}</Label>
                     <FormGroup check>
                       <Label check>
@@ -172,7 +174,7 @@ function BrainTumor(props) {
                       </Input>
                     </FormGroup>
                     <FormText color="muted">{t('brain_classification_config_desc')}</FormText>
-                    <br></br>
+                    <Divider className="divider" />
                     <Label for="exampleEmail">{t('brain_segmentation_config_title')}</Label>
                     <FormGroup check>
                       <Label check>
@@ -192,7 +194,7 @@ function BrainTumor(props) {
                     </FormGroup>
                     <FormText color="muted">{t('brain_segmentation_config_desc')}</FormText>
                   </FormGroup>
-                  <br></br>
+                  <Divider className="divider" />
                   <FormGroup check>
                     <Label check>
                       <Input type="checkbox" /> {t('brain_config_download')}

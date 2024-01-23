@@ -11256,10 +11256,10 @@ fieldset[disabled] .navbar .navbar-nav > a.btn.active {
 
 .btn-primary {
   background: #00b2ff;
-  background-image: -webkit-linear-gradient(to bottom left, #00b2ff, #00fffb, #00b2ff);
-  background-image: -o-linear-gradient(to bottom left, #00b2ff, #00fffb, #00b2ff);
-  background-image: -moz-linear-gradient(to bottom left, #00b2ff, #00fffb, #00b2ff);
-  background-image: linear-gradient(to bottom left, #00b2ff, #00fffb, #00b2ff);
+  background-image: -webkit-linear-gradient(to bottom left, #00b2ff, #0086bf, #00b2ff);
+  background-image: -o-linear-gradient(to bottom left, #00b2ff, #0086bf, #00b2ff);
+  background-image: -moz-linear-gradient(to bottom left, #00b2ff, #0086bf, #00b2ff);
+  background-image: linear-gradient(to bottom left, #00b2ff, #0086bf, #00b2ff);
   background-size: 210% 210%;
   background-position: top right;
   background-color: #00b2ff;
@@ -11272,11 +11272,11 @@ fieldset[disabled] .navbar .navbar-nav > a.btn.active {
   transition: 0.3s ease-in-out;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary.active:focus, .btn-primary.active:hover {
-  background-color: #00fffb !important;
-  background-image: linear-gradient(to bottom left, #00b2ff, #00fffb, #00b2ff) !important;
-  background-image: -webkit-linear-gradient(to bottom left, #00b2ff, #00fffb, #00b2ff) !important;
-  background-image: -o-linear-gradient(to bottom left, #00b2ff, #00fffb, #00b2ff) !important;
-  background-image: -moz-linear-gradient(to bottom left, #00b2ff, #00fffb, #00b2ff) !important;
+  background-color: #0086bf !important;
+  background-image: linear-gradient(to bottom left, #00b2ff, #0086bf, #00b2ff) !important;
+  background-image: -webkit-linear-gradient(to bottom left, #00b2ff, #0086bf, #00b2ff) !important;
+  background-image: -o-linear-gradient(to bottom left, #00b2ff, #0086bf, #00b2ff) !important;
+  background-image: -moz-linear-gradient(to bottom left, #00b2ff, #0086bf, #00b2ff) !important;
   color: #ffffff;
   box-shadow: none;
 }
@@ -11312,11 +11312,11 @@ fieldset[disabled] .navbar .navbar-nav > a.btn.active {
 .btn-primary.btn-simple.active:hover, .btn-primary.btn-simple.active:focus, .btn-primary.btn-simple.active:active, .btn-primary.btn-simple.active:not(:disabled):not(.disabled):active {
   color: #ffffff;
   border-color: #00b2ff;
-  background-image: linear-gradient(to bottom left, #00b2ff, #00fffb, #00b2ff) !important;
-  background-image: -webkit-linear-gradient(to bottom left, #00b2ff, #00fffb, #00b2ff) !important;
-  background-image: -o-linear-gradient(to bottom left, #00b2ff, #00fffb, #00b2ff) !important;
-  background-image: -moz-linear-gradient(to bottom left, #00b2ff, #00fffb, #00b2ff) !important;
-  background-color: #00fffb !important;
+  background-image: linear-gradient(to bottom left, #00b2ff, #0086bf, #00b2ff) !important;
+  background-image: -webkit-linear-gradient(to bottom left, #00b2ff, #0086bf, #00b2ff) !important;
+  background-image: -o-linear-gradient(to bottom left, #00b2ff, #0086bf, #00b2ff) !important;
+  background-image: -moz-linear-gradient(to bottom left, #00b2ff, #0086bf, #00b2ff) !important;
+  background-color: #0086bf !important;
   box-shadow: none;
 }
 .btn-primary.btn-link {
@@ -11709,11 +11709,11 @@ fieldset[disabled] .navbar .navbar-nav > a.btn.active {
 }
 .btn-neutral.active, .btn-neutral:active, .btn-neutral:active:focus, .btn-neutral:active:hover, .btn-neutral.active:focus, .btn-neutral.active:hover, .show > .btn-neutral.dropdown-toggle, .show > .btn-neutral.dropdown-toggle:focus, .show > .btn-neutral.dropdown-toggle:hover {
   background-color: #ffffff;
-  color: #00fffb;
+  color: #0086bf;
   box-shadow: none;
 }
 .btn-neutral:hover, .btn-neutral:focus {
-  color: #00fffb;
+  color: #0086bf;
 }
 .btn-neutral:hover:not(.nav-link), .btn-neutral:focus:not(.nav-link) {
   box-shadow: none;
@@ -13844,7 +13844,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-  color: #00fffb;
+  color: #0086bf;
   font-weight: 300;
 }
 a:hover, a:focus {
@@ -14552,11 +14552,11 @@ hr {
 
 .sidebar,
 .off-canvas-sidebar {
-  background: #00fffb;
-  background: -webkit-linear-gradient(0deg, #00fffb 0%, #00b2ff 100%);
-  background: -o-linear-gradient(0deg, #00fffb 0%, #00b2ff 100%);
-  background: -moz-linear-gradient(0deg, #00fffb 0%, #00b2ff 100%);
-  background: linear-gradient(0deg, #00fffb 0%, #00b2ff 100%);
+  background: #0086bf;
+  background: -webkit-linear-gradient(0deg, #0086bf 0%, #00b2ff 100%);
+  background: -o-linear-gradient(0deg, #0086bf 0%, #00b2ff 100%);
+  background: -moz-linear-gradient(0deg, #0086bf 0%, #00b2ff 100%);
+  background: linear-gradient(0deg, #0086bf 0%, #00b2ff 100%);
   height: calc(100vh - 90px);
   width: 230px;
   position: fixed;
@@ -14635,7 +14635,8 @@ hr {
   line-height: 20px;
   width: 26px;
 }
-.sidebar .sidebar-wrapper [data-toggle=collapse] ~ div > ul > li:hover > a .sidebar-mini-icon, .sidebar .sidebar-wrapper [data-toggle=collapse] ~ div > ul > li:hover > a .sidebar-normal,
+.sidebar .sidebar-wrapper [data-toggle=collapse] ~ div > ul > li:hover > a .sidebar-mini-icon,
+.sidebar .sidebar-wrapper [data-toggle=collapse] ~ div > ul > li:hover > a .sidebar-normal,
 .off-canvas-sidebar .sidebar-wrapper [data-toggle=collapse] ~ div > ul > li:hover > a .sidebar-mini-icon,
 .off-canvas-sidebar .sidebar-wrapper [data-toggle=collapse] ~ div > ul > li:hover > a .sidebar-normal {
   color: #ffffff;
@@ -14704,7 +14705,9 @@ hr {
 .off-canvas-sidebar .nav li:first-child > a {
   margin: 0 15px;
 }
-.sidebar .nav li:hover:not(.active) > a p, .sidebar .nav li:hover:not(.active) > a i, .sidebar .nav li:focus:not(.active) > a p, .sidebar .nav li:focus:not(.active) > a i,
+.sidebar .nav li:hover:not(.active) > a p,
+.sidebar .nav li:hover:not(.active) > a i, .sidebar .nav li:focus:not(.active) > a p,
+.sidebar .nav li:focus:not(.active) > a i,
 .off-canvas-sidebar .nav li:hover:not(.active) > a p,
 .off-canvas-sidebar .nav li:hover:not(.active) > a i,
 .off-canvas-sidebar .nav li:focus:not(.active) > a p,
@@ -14720,7 +14723,8 @@ hr {
 .off-canvas-sidebar .nav li.active > a:not([data-toggle=collapse]) {
   background: transparent;
 }
-.sidebar .nav li.active > a:not([data-toggle=collapse]) i, .sidebar .nav li.active > a:not([data-toggle=collapse]) p,
+.sidebar .nav li.active > a:not([data-toggle=collapse]) i,
+.sidebar .nav li.active > a:not([data-toggle=collapse]) p,
 .off-canvas-sidebar .nav li.active > a:not([data-toggle=collapse]) i,
 .off-canvas-sidebar .nav li.active > a:not([data-toggle=collapse]) p {
   color: white;
@@ -14750,7 +14754,8 @@ hr {
 .off-canvas-sidebar .nav li.active > a[data-toggle=collapse] + div .nav .active a {
   box-shadow: none;
 }
-.sidebar .nav li.active > a[data-toggle=collapse] + div .nav .active a .sidebar-mini-icon, .sidebar .nav li.active > a[data-toggle=collapse] + div .nav .active a .sidebar-normal,
+.sidebar .nav li.active > a[data-toggle=collapse] + div .nav .active a .sidebar-mini-icon,
+.sidebar .nav li.active > a[data-toggle=collapse] + div .nav .active a .sidebar-normal,
 .off-canvas-sidebar .nav li.active > a[data-toggle=collapse] + div .nav .active a .sidebar-mini-icon,
 .off-canvas-sidebar .nav li.active > a[data-toggle=collapse] + div .nav .active a .sidebar-normal {
   color: #ffffff;
@@ -14876,11 +14881,11 @@ hr {
 }
 .sidebar[data=blue],
 .off-canvas-sidebar[data=blue] {
-  background: #3358f4;
-  background: -webkit-linear-gradient(0deg, #3358f4 0%, #1d8cf8 100%);
-  background: -o-linear-gradient(0deg, #3358f4 0%, #1d8cf8 100%);
-  background: -moz-linear-gradient(0deg, #3358f4 0%, #1d8cf8 100%);
-  background: linear-gradient(0deg, #3358f4 0%, #1d8cf8 100%);
+  background: #0086bf;
+  background: -webkit-linear-gradient(0deg, #0086bf 0%, #00b2ff 100%);
+  background: -o-linear-gradient(0deg, #0086bf 0%, #00b2ff 100%);
+  background: -moz-linear-gradient(0deg, #0086bf 0%, #00b2ff 100%);
+  background: linear-gradient(0deg, #0086bf 0%, #00b2ff 100%);
 }
 .sidebar[data=green],
 .off-canvas-sidebar[data=green] {
@@ -14977,7 +14982,7 @@ hr {
   transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
 }
 .main-panel[data=blue] {
-  border-top: 2px solid #1d8cf8;
+  border-top: 2px solid #00b2ff;
 }
 .main-panel[data=green] {
   border-top: 2px solid #00f2c3;
@@ -15106,7 +15111,7 @@ hr {
   height: 260px;
   padding-top: 80px;
   padding-bottom: 45px;
-  background: #141E30; /* fallback for old browsers */
+  background: #141e30; /* fallback for old browsers */
   background: -webkit-gradient(linear, left top, right top, from(#0c2646), color-stop(60%, #204065), to(#2a5788));
   background: linear-gradient(to right, #0c2646 0%, #204065 60%, #2a5788 100%);
   position: relative;
@@ -15878,6 +15883,17 @@ textarea.form-control {
 .input-group-prepend .tim-icons,
 .input-group-append .tim-icons {
   font-size: 1rem;
+}
+
+.file-upload {
+  min-height: 50vh;
+}
+
+.divider {
+  border: "1px solid";
+  border-color: #00b2ff;
+  background-color: #00b2ff;
+  margin: 1em;
 }
 
 /*
