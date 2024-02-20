@@ -15,8 +15,10 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
+import BrainTumor from 'views/BrainTumor';
 import CurriculumVitae from 'views/CurriculumVitae';
 import Dashboard from 'views/Dashboard.js';
+import Home from 'views/Home';
 import Icons from 'views/Icons.js';
 import Map from 'views/Map.js';
 import Notifications from 'views/Notifications.js';
@@ -27,6 +29,14 @@ import Typography from 'views/Typography.js';
 import UserProfile from 'views/UserProfile.js';
 
 var routes = [
+  {
+    path: '/home',
+    name: 'home',
+    icon: 'tim-icons icon-chart-pie-36',
+    component: <Home />,
+    layout: '/admin',
+  },
+  /*
   {
     path: '/dashboard',
     name: 'Dashboard',
@@ -76,18 +86,26 @@ var routes = [
     component: <Typography />,
     layout: '/admin',
   },
+  */
   {
     path: '/curriculum-vitae',
-    name: 'Curriculum Vitae',
+    name: 'curriculum_vitae',
     icon: 'tim-icons icon-paper',
     component: <CurriculumVitae />,
     layout: '/admin',
   },
   {
     path: '/stock-predictor',
-    name: 'Stock Predictor',
+    name: 'stock_predictor',
     icon: 'tim-icons icon-chart-bar-32',
     component: <StockPredictor />,
+    layout: '/admin',
+  },
+  {
+    path: '/brain-tumor',
+    name: 'brain_tumor',
+    icon: 'tim-icons icon-chart-bar-32',
+    component: <BrainTumor />,
     layout: '/admin',
   },
 ];

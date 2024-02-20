@@ -19,6 +19,7 @@
 import { faGithub, faGithubAlt, faLinkedin, faTiktok } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 // reactstrap components
 import { Container, Nav, NavItem, NavLink } from 'reactstrap';
@@ -26,6 +27,7 @@ import { Container, Nav, NavItem, NavLink } from 'reactstrap';
 var packageJson = require('../../../package.json');
 
 function Footer() {
+  const { t } = useTranslation();
   return (
     <footer className="footer">
       <Container fluid>
@@ -51,8 +53,8 @@ function Footer() {
           <NavItem></NavItem>
         </Nav>
         <div className="copyright">
-          © {new Date().getFullYear()} made with <i className="tim-icons icon-heart-2" /> by{' '}
-          <a href="https://github.com/JSisques" target="_blank" className="text-secondary">
+          © {new Date().getFullYear()} {t('made_with').toLowerCase()} <i className="tim-icons icon-heart-2" /> {t('by').toLowerCase()}{' '}
+          <a href="https://github.com/JSisques" target="_blank" className="text-primary">
             JSisques
           </a>{' '}
           v{packageJson.version}
