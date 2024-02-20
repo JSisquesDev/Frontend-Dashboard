@@ -10,7 +10,7 @@ env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: docker.io
   # github.repository as <account>/<repo>
-  REPOSITORY_NAME: Frontend-Dashboard
+  REPOSITORY_NAME: Dashboard
   USERNAME: ${{ secrets.DOCKER_USERNAME }}
 
 jobs:
