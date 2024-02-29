@@ -23,7 +23,6 @@ import {
 } from 'reactstrap';
 
 // core components
-import { chartExample1, chartExample2, chartExample3, chartExample4 } from 'variables/charts.js';
 import { useTranslation } from 'react-i18next';
 import { Progress } from 'react-sweet-progress';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -33,10 +32,13 @@ import { FileUploader } from 'react-drag-drop-files';
 import 'react-sweet-progress/lib/style.css';
 import { Divider } from '@mui/material';
 
-function BrainTumor(props) {
+function Cerebrum(props) {
   const { t } = useTranslation();
 
-  const [file, setFile] = useState();
+  const [file, setFile] = useState(null);
+  const [data, setData] = useState([]);
+
+  const BACKEND_URL = process.env.REACT_APP_CEREBRUM_BACKEND_URL;
 
   return (
     <>
@@ -78,7 +80,7 @@ function BrainTumor(props) {
                       theme={{
                         default: {
                           symbol: '🧠',
-                          color: '#ff8900',
+                          color: '#00DB8D',
                         },
                       }}
                     />
@@ -127,6 +129,7 @@ function BrainTumor(props) {
               </CardBody>
             </Card>
           </Col>
+
           <Col md="6">
             <Card style={{ minHeight: '80vh' }}>
               <CardHeader>
@@ -212,7 +215,7 @@ function BrainTumor(props) {
                     </Label>
                   </FormGroup>
                   <br></br>
-                  <Button color="primary" type="submit">
+                  <Button color="primary" type="button">
                     {t('accept')}
                   </Button>
                 </form>
@@ -225,4 +228,4 @@ function BrainTumor(props) {
   );
 }
 
-export default BrainTumor;
+export default Cerebrum;

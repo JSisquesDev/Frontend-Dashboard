@@ -41,7 +41,7 @@ const en = {
   brain_detection_config_desc: 'Descripcion bla bla bla',
   brain_classification_config_title: 'Classification settings',
   brain_classification_config_checkbox: 'Clasificar en el caso de que exista un tumor',
-  brain_classification_config_desc: 'Clasifica ne 44 tipos de tumores diferentes...',
+  brain_classification_config_desc: 'Clasifica en 44 tipos de tumores diferentes...',
   brain_segmentation_config_title: 'Segmentation settings',
   brain_segmentation_config_checkbox: 'Segmentar en el caso de que exista un tumor',
   brain_segmentation_config_desc: 'La segmentación proporciona...',

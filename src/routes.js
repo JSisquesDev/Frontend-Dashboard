@@ -15,7 +15,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import BrainTumor from 'views/BrainTumor';
+import Cerebrum from 'views/Cerebrum';
 import CurriculumVitae from 'views/CurriculumVitae';
 import Dashboard from 'views/Dashboard.js';
 import Home from 'views/Home';
@@ -102,10 +102,10 @@ var routes = [
     layout: '/admin',
   },
   {
-    path: '/brain-tumor',
-    name: 'brain_tumor',
+    path: '/cerebrum',
+    name: 'cerebrum',
     icon: 'tim-icons icon-chart-bar-32',
-    component: <BrainTumor />,
+    component: <Cerebrum />,
     layout: '/admin',
   },
 ];
