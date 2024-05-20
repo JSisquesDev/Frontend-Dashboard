@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // nodejs library that concatenates classes
 import classNames from 'classnames';
 // react plugin used to create charts
@@ -31,14 +31,110 @@ import { FileUploader } from 'react-drag-drop-files';
 
 import 'react-sweet-progress/lib/style.css';
 import { Divider } from '@mui/material';
+import axios from 'axios';
 
 function Cerebrum(props) {
   const { t } = useTranslation();
 
   const [file, setFile] = useState(null);
+  const [base64File, setBase64File] = useState([]);
   const [data, setData] = useState([]);
 
+  const [chkbxDetection, setChkbxDetection] = useState(false);
+  const [chkbxClassification, setChkbxClassification] = useState(false);
+  const [chkbxSegmentation, setChkbxSegmentation] = useState(false);
+
+  const [detectionModels, setDetectionModels] = useState([]);
+  const [classificationModels, setClassificationModels] = useState([]);
+  const [segmentationModels, setSegmentationModels] = useState([]);
+
+  const [isFetching, setIsFetching] = useState(false);
+  const [isFirstLoad, setIsFirstLoad] = useState(true);
+
   const BACKEND_URL = process.env.REACT_APP_CEREBRUM_BACKEND_URL;
+
+  const [response, setResponse] = useState({});
+
+  useEffect(() => {
+    if (isFirstLoad) {
+      fetchData();
+      setIsFirstLoad(false);
+    }
+  });
+
+  const fetchData = () => {
+    setIsFetching(true);
+
+    setDetectionModels([]);
+    setClassificationModels([]);
+    setSegmentationModels([]);
+
+    axios({
+      method: 'get',
+      url: 'http://localhost:6969/models',
+    })
+      .then(response => {
+        console.log(response);
+        setDetectionModels(response.data.detectionModels);
+        setClassificationModels(response.data.classificationModels);
+        setSegmentationModels(response.data.segmentationModels);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+      .finally(() => {
+        setIsFetching(false);
+      });
+  };
+
+  const createRequestJson = () => {
+    return JSON.stringify({
+      enableDetection: chkbxDetection,
+      enableClassification: chkbxClassification,
+      enableSegmentation: chkbxSegmentation,
+      detectionModel: 'v1',
+      classificationModel: 'v1',
+      segmentationModel: 'v1',
+      downloadResults: true,
+      image: base64File,
+      imageName: file.name,
+    });
+  };
+
+  const convertImageToBase64 = file => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onload = () => {
+      const encodedImage = reader.result;
+      setBase64File(encodedImage);
+    };
+  };
+
+  const sendForm = () => {
+    setIsFetching(true);
+
+    const json = createRequestJson();
+
+    axios({
+      method: 'post',
+      url: 'http://localhost:6969/predict',
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      data: json,
+    })
+      .then(response => {
+        console.log(response);
+        setResponse(JSON.stringify(response));
+      })
+      .catch(error => {
+        console.log(error);
+      })
+      .finally(() => {
+        setIsFetching(false);
+      });
+  };
 
   return (
     <>
@@ -54,7 +150,16 @@ function Cerebrum(props) {
               <CardBody>
                 <Row>
                   <Col>
-                    <FileUploader multiple={true} name="file" type={['jpeg', 'png']} handleChange={file => setFile(file)} />
+                    <FileUploader
+                      multiple={false}
+                      name="file"
+                      type={['jpeg', 'png']}
+                      handleChange={file => {
+                        setFile(file);
+                        convertImageToBase64(file);
+                        console.log(file);
+                      }}
+                    />
                   </Col>
                 </Row>
                 <Row>
@@ -143,7 +248,13 @@ function Cerebrum(props) {
                     <Label for="exampleEmail">{t('brain_detection_config_title')}</Label>
                     <FormGroup check>
                       <Label check>
-                        <Input type="checkbox" /> {t('brain_detection_config_checkbox')}
+                        <Input
+                          type="checkbox"
+                          onClick={e => {
+                            setChkbxDetection(!chkbxDetection);
+                          }}
+                        />{' '}
+                        {t('brain_detection_config_checkbox')}
                         <span className="form-check-sign">
                           <span className="check"></span>
                         </span>
@@ -153,8 +264,14 @@ function Cerebrum(props) {
                     <FormGroup>
                       <Label for="inputState">{t('brain_config_model_select')}</Label>
                       <Input type="select" name="select" id="inputState">
-                        <option>Choose...</option>
-                        <option>...</option>
+                        {Array.from(detectionModels).forEach(model => {
+                          console.log(model);
+                          return (
+                            <>
+                              <option>{model}</option>
+                            </>
+                          );
+                        })}
                       </Input>
                     </FormGroup>
                     <FormText color="muted">{t('brain_detection_config_desc')}</FormText>
@@ -162,7 +279,13 @@ function Cerebrum(props) {
                     <Label for="exampleEmail">{t('brain_classification_config_title')}</Label>
                     <FormGroup check>
                       <Label check>
-                        <Input type="checkbox" /> {t('brain_classification_config_checkbox')}
+                        <Input
+                          type="checkbox"
+                          onClick={e => {
+                            setChkbxClassification(!chkbxClassification);
+                          }}
+                        />{' '}
+                        {t('brain_classification_config_checkbox')}
                         <span className="form-check-sign">
                           <span className="check"></span>
                         </span>
@@ -181,7 +304,13 @@ function Cerebrum(props) {
                     <Label for="exampleEmail">{t('brain_segmentation_config_title')}</Label>
                     <FormGroup check>
                       <Label check>
-                        <Input type="checkbox" /> {t('brain_segmentation_config_checkbox')}
+                        <Input
+                          type="checkbox"
+                          onClick={e => {
+                            setChkbxSegmentation(!chkbxSegmentation);
+                          }}
+                        />{' '}
+                        {t('brain_segmentation_config_checkbox')}
                         <span className="form-check-sign">
                           <span className="check"></span>
                         </span>
@@ -215,7 +344,13 @@ function Cerebrum(props) {
                     </Label>
                   </FormGroup>
                   <br></br>
-                  <Button color="primary" type="button">
+                  <Button
+                    color="primary"
+                    type="button"
+                    onClick={() => {
+                      sendForm();
+                    }}
+                  >
                     {t('accept')}
                   </Button>
                 </form>
