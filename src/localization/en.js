@@ -48,6 +48,8 @@ const en = {
   brain_config_download: 'Download results',
   brain_config_accept_terms:
     'By checking this box, I confirm that I have read and agree to the terms and conditions for the use of the provided photos for the purpose of training artificial intelligence models.',
+  brain_config_file_upload_not_found: 'Please upload an image before submitting the form.',
+  brain_predict_results: 'Results',
 };
 
 export default en;

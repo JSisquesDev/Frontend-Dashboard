@@ -32,7 +32,7 @@ const es = {
   by: 'Por',
 
   // Brain Tumor Page
-  brain_upload_files: 'Subir Archivos',
+  brain_upload_files: 'Subir archivos',
   brain_config_prediction: 'Configuración',
   brain_config_model_select: 'Selecciona un modelo de la lista:',
   brain_config_model_placeholder: 'Selecciona el modelo...',
@@ -48,6 +48,8 @@ const es = {
   brain_config_download: 'Descargar los resultados generados',
   brain_config_accept_terms:
     'Al marcar esta casilla, confirmo que he leído y acepto las condiciones y términos para el uso de las fotos proporcionadas con el propósito de entrenar modelos de inteligencia artificial.',
+  brain_config_file_upload_not_found: 'Por favor, sube una imagen antes de aceptar',
+  brain_predict_results: 'Resultados',
 };
 
 export default es;

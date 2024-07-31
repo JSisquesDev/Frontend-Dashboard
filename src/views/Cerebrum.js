@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 // nodejs library that concatenates classes
 import classNames from 'classnames';
 // react plugin used to create charts
@@ -20,18 +20,21 @@ import {
   FormText,
   ListGroup,
   ListGroupItem,
+  Spinner,
 } from 'reactstrap';
 
 // core components
 import { useTranslation } from 'react-i18next';
 import { Progress } from 'react-sweet-progress';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClose, faGear, faUpload } from '@fortawesome/free-solid-svg-icons';
+import { faCircleInfo, faClose, faGear, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { FileUploader } from 'react-drag-drop-files';
 
 import 'react-sweet-progress/lib/style.css';
-import { Divider } from '@mui/material';
+import { Alert, Divider } from '@mui/material';
 import axios from 'axios';
+
+import CustomDropzone from '../components/CustomDropzone/CustomDropzone.js';
 
 function Cerebrum(props) {
   const { t } = useTranslation();
@@ -44,17 +47,23 @@ function Cerebrum(props) {
   const [chkbxClassification, setChkbxClassification] = useState(false);
   const [chkbxSegmentation, setChkbxSegmentation] = useState(false);
 
-  const [detectionModels, setDetectionModels] = useState([]);
-  const [classificationModels, setClassificationModels] = useState([]);
-  const [segmentationModels, setSegmentationModels] = useState([]);
+  const [detectionModels, setDetectionModels] = useState({});
+  const [classificationModels, setClassificationModels] = useState({});
+  const [segmentationModels, setSegmentationModels] = useState({});
+
+  const [detectionModelSelected, setDetectionModelSelected] = useState('');
+  const [classificationModelSelected, setClassificationModelSelected] = useState('');
+  const [segmentationModelSelected, setSegmentationModelSelected] = useState('');
 
   const [isFetching, setIsFetching] = useState(false);
   const [isFirstLoad, setIsFirstLoad] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
 
+  const [showAlert, setShowAlert] = useState(false);
+
   const BACKEND_URL = process.env.REACT_APP_CEREBRUM_BACKEND_URL;
 
-  const [response, setResponse] = useState({});
+  const [predictResponse, setPredictResponse] = useState({});
 
   useEffect(() => {
     if (isFirstLoad) {
@@ -69,21 +78,14 @@ function Cerebrum(props) {
 
     axios({
       method: 'get',
-      url: 'http://localhost:6969/models',
+      url: 'http://localhost:5000/models',
     })
       .then(response => {
-        console.log(response);
+        const data = JSON.stringify(response.data);
 
-        const detection = JSON.stringify(response.data.detectionModels);
-
-        setDetectionModels(response.data.detectionModels);
-        setClassificationModels(response.data.classificationModels);
-        setSegmentationModels(response.data.segmentationModels);
-
-        console.log(detectionModels);
-        console.log(detection);
-        console.log(classificationModels);
-        console.log(segmentationModels);
+        setDetectionModels(response.data.detection);
+        setClassificationModels(response.data.classification);
+        setSegmentationModels(response.data.segmentation);
       })
       .catch(error => {
         console.log(error);
@@ -99,9 +101,9 @@ function Cerebrum(props) {
       enableDetection: chkbxDetection,
       enableClassification: chkbxClassification,
       enableSegmentation: chkbxSegmentation,
-      detectionModel: 'v1',
-      classificationModel: 'v1',
-      segmentationModel: 'v1',
+      detectionModel: detectionModelSelected,
+      classificationModel: classificationModelSelected,
+      segmentationModel: segmentationModelSelected,
       downloadResults: true,
       image: base64File,
       imageName: file.name,
@@ -119,21 +121,26 @@ function Cerebrum(props) {
   };
 
   const sendForm = () => {
+    if (!file) {
+      setShowAlert(true);
+      return;
+    }
+
     setIsFetching(true);
     setIsLoading(true);
     const json = createRequestJson();
 
     axios({
       method: 'post',
-      url: 'http://localhost:6969/predict',
+      url: 'http://localhost:5000/predict',
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',
       },
       data: json,
     })
       .then(response => {
-        console.log(response);
-        setResponse(JSON.stringify(response));
+        setPredictResponse(response.data);
+        console.log(predictResponse);
       })
       .catch(error => {
         console.log(error);
@@ -144,48 +151,60 @@ function Cerebrum(props) {
       });
   };
 
+  const handleFileUpload = file => {
+    setFile(file);
+    convertImageToBase64(file);
+  };
+
+  const handleSelectChangeDetection = event => {
+    setDetectionModelSelected(event.target.value);
+  };
+
+  const handleSelectChangeClassification = event => {
+    setClassificationModelSelected(event.target.value);
+  };
+
+  const handleSelectChangeSegmentation = event => {
+    setSegmentationModelSelected(event.target.value);
+  };
+
   if (isLoading) {
-    return <h1>Loading</h1>;
+    return (
+      <Row style={{ display: 'flex', flexWrap: 'wrap' }}>
+        <Col md="12" style={{ display: 'flex' }}>
+          <Card style={{ flex: 1 }}>
+            <CardBody style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+              <Spinner>adasd</Spinner>
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
+    );
   } else {
     return (
       <>
         <div className="content">
-          <Row>
-            <Col md="6">
-              <Card style={{ minHeight: '80vh' }}>
+          <Row style={{ display: 'flex', flexWrap: 'wrap' }}>
+            <Col md="6" style={{ display: 'flex' }}>
+              <Card style={{ flex: 1, minHeight: '80vh' }}>
                 <CardHeader>
                   <CardTitle tag="h4">
                     <FontAwesomeIcon className="text-primary" icon={faUpload} /> {t('brain_upload_files')}
                   </CardTitle>
                 </CardHeader>
-                <CardBody>
-                  <Row>
+                <CardBody style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                  <Row style={{ flex: '1 0 50%' }}>
                     <Col>
-                      <FileUploader
-                        multiple={false}
-                        name="file"
-                        type={['jpeg', 'png']}
-                        handleChange={file => {
-                          setFile(file);
-                          convertImageToBase64(file);
-                          console.log(file);
-                        }}
-                      />
+                      <CustomDropzone handleFileUpload={handleFileUpload} style={{ backgroundColor: '#fafafa' }}>
+                        {({ getRootProps, getInputProps }) => (
+                          <div {...getRootProps()}>
+                            <input {...getInputProps()} />
+                            <p>Drag 'n' drop some files here, or click to select files</p>
+                          </div>
+                        )}
+                      </CustomDropzone>
                     </Col>
                   </Row>
-                  <Row>
-                    <Col>
-                      <form>
-                        <FormGroup>
-                          <Button color="primary">
-                            <Input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" />
-                            aaaaaaaaaaa
-                          </Button>
-                        </FormGroup>
-                      </form>
-                    </Col>
-                  </Row>
-                  <br></br>
                   <Row>
                     <Col>
                       <p>Ejemplo (80kb)</p>
@@ -245,9 +264,8 @@ function Cerebrum(props) {
                 </CardBody>
               </Card>
             </Col>
-
-            <Col md="6">
-              <Card style={{ minHeight: '80vh' }}>
+            <Col md="6" style={{ display: 'flex' }}>
+              <Card style={{ flex: 1, minHeight: '80vh' }}>
                 <CardHeader>
                   <CardTitle tag="h4">
                     <FontAwesomeIcon className="text-primary" icon={faGear} /> {t('brain_config_prediction')}
@@ -274,16 +292,12 @@ function Cerebrum(props) {
                       <br></br>
                       <FormGroup>
                         <Label for="inputState">{t('brain_config_model_select')}</Label>
-                        <Input type="select" name="select" id="inputState">
-                          {Array.from(detectionModels).forEach(model => {
-                            return (
-                              <>
-                                <option>{model}</option>
-                              </>
-                            );
-                          })}
-                          <option>Choose...</option>
-                          <option>...</option>
+                        <Input type="select" name="select" id="inputState" onChange={handleSelectChangeDetection}>
+                          {Object.keys(detectionModels).map((model, index) => (
+                            <option key={index} value={model}>
+                              {model.charAt(0).toUpperCase() + model.slice(1)} {detectionModels[model].binary_accuracy} {'%'}
+                            </option>
+                          ))}
                         </Input>
                       </FormGroup>
                       <FormText color="muted">{t('brain_detection_config_desc')}</FormText>
@@ -306,7 +320,7 @@ function Cerebrum(props) {
                       <br></br>
                       <FormGroup>
                         <Label for="inputState">{t('brain_config_model_select')}</Label>
-                        <Input type="select" name="select" id="inputState">
+                        <Input type="select" name="select" id="inputState" onChange={handleSelectChangeClassification}>
                           <option>Choose...</option>
                           <option>...</option>
                         </Input>
@@ -331,9 +345,12 @@ function Cerebrum(props) {
                       <br></br>
                       <FormGroup>
                         <Label for="inputState">{t('brain_config_model_select')}</Label>
-                        <Input type="select" name="select" id="inputState">
-                          <option>Choose...</option>
-                          <option>...</option>
+                        <Input type="select" name="select" id="inputState" onChange={handleSelectChangeSegmentation}>
+                          {Object.keys(segmentationModels).map((model, index) => (
+                            <option key={index} value={model}>
+                              {model.charAt(0).toUpperCase() + model.slice(1)} {segmentationModels[model].dice_coef} {'%'}
+                            </option>
+                          ))}
                         </Input>
                       </FormGroup>
                       <FormText color="muted">{t('brain_segmentation_config_desc')}</FormText>
@@ -356,6 +373,11 @@ function Cerebrum(props) {
                       </Label>
                     </FormGroup>
                     <br></br>
+                    {showAlert && (
+                      <Alert severity="error" onClose={() => setShowAlert(false)}>
+                        {t('brain_config_file_upload_not_found')}
+                      </Alert>
+                    )}
                     <Button
                       color="primary"
                       type="button"
@@ -370,6 +392,42 @@ function Cerebrum(props) {
               </Card>
             </Col>
           </Row>
+
+          {Object.keys(predictResponse).length != 0 && (
+            <Row style={{ display: 'flex', flexWrap: 'wrap' }}>
+              <Col md="12" style={{ display: 'flex' }}>
+                <Card style={{ flex: 1 }}>
+                  <CardHeader>
+                    <CardTitle tag="h4">
+                      <FontAwesomeIcon className="text-primary" icon={faCircleInfo} /> {t('brain_predict_results')}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardBody style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                    {!isLoading && (
+                      <Row style={{ flex: '1' }}>
+                        <Col md="6">
+                          <img
+                            src={'data:image/png;base64,' + predictResponse['segmentation'].original}
+                            alt="Original"
+                            style={{ width: '100%', height: 'auto' }}
+                          />
+                          <p style={{ width: '100%', height: 'auto', textAlign: 'center', marginTop: '1vh' }}>Imagen original</p>
+                        </Col>
+                        <Col md="6">
+                          <img
+                            src={'data:image/png;base64,' + predictResponse['segmentation'].mask}
+                            alt="Prediction"
+                            style={{ width: '100%', height: 'auto' }}
+                          />
+                          <p style={{ width: '100%', height: 'auto', textAlign: 'center', marginTop: '1vh' }}>Imagen predicha</p>
+                        </Col>
+                      </Row>
+                    )}
+                  </CardBody>
+                </Card>
+              </Col>
+            </Row>
+          )}
         </div>
       </>
     );
