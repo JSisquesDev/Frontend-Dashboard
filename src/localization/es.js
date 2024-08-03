@@ -6,6 +6,9 @@ const es = {
   welcome: 'Bienvenido',
   change_language: 'Cambiar Idioma',
   accept: 'Aceptar',
+  detection: 'Detección',
+  classification: 'Clasificación',
+  segmentation: 'Segmentación',
 
   //Sidebar Menu
   home: 'Inicio',
@@ -50,6 +53,12 @@ const es = {
     'Al marcar esta casilla, confirmo que he leído y acepto las condiciones y términos para el uso de las fotos proporcionadas con el propósito de entrenar modelos de inteligencia artificial.',
   brain_config_file_upload_not_found: 'Por favor, sube una imagen antes de aceptar',
   brain_predict_results: 'Resultados',
+  brain_drag_and_drop_files: 'Arrastra y suelta imagenes aquí o haz click para seleccionar las imagenes',
+  brain_select_all: 'Seleccionar todos',
+  brain_aditional_info: 'Infromación adicional',
+  brain_used_model: 'Modelo usado',
+  brain_detected: 'Detectado',
+  brain_classification_type: 'Tipo',
 };
 
 export default es;

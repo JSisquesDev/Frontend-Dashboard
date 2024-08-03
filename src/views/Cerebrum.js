@@ -1,9 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 // nodejs library that concatenates classes
 import classNames from 'classnames';
-// react plugin used to create charts
-import { Line, Bar } from 'react-chartjs-2';
-
 // reactstrap components
 import {
   Button,
@@ -199,68 +196,45 @@ function Cerebrum(props) {
                         {({ getRootProps, getInputProps }) => (
                           <div {...getRootProps()}>
                             <input {...getInputProps()} />
-                            <p>Drag 'n' drop some files here, or click to select files</p>
+                            <p>{t('brain_drag_and_drop_files')}</p>
                           </div>
                         )}
                       </CustomDropzone>
                     </Col>
                   </Row>
-                  <Row>
-                    <Col>
-                      <p>Ejemplo (80kb)</p>
-                      <FontAwesomeIcon className="text-right" icon={faClose}></FontAwesomeIcon>
-                      <Progress
-                        percent={80}
-                        status="success"
-                        theme={{
-                          default: {
-                            symbol: '🧠',
-                            color: '#00DB8D',
-                          },
-                        }}
-                      />
-                    </Col>
-                  </Row>
-                  <br></br>
-                  <Row>
-                    <Col>
-                      <p>Ejemplo (80kb)</p>
-                    </Col>
-                    <Col className="text-right">
-                      <FontAwesomeIcon className="text-right" icon={faClose}></FontAwesomeIcon>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
-                      <Progress
-                        percent={80}
-                        status="default"
-                        theme={{
-                          default: {
-                            symbol: '🍕',
-                            color: '#ff8900',
-                          },
-                        }}
-                      />
-                    </Col>
-                  </Row>
-                  <br></br>
-                  <Row>
-                    <Col>
-                      <p>Ejemplo (80kb)</p>
-                      <FontAwesomeIcon className="text-right" icon={faClose}></FontAwesomeIcon>
-                      <Progress
-                        percent={80}
-                        status="error"
-                        theme={{
-                          default: {
-                            symbol: '🧠',
-                            color: '#ff8900',
-                          },
-                        }}
-                      />
-                    </Col>
-                  </Row>
+                  {file && base64File && (
+                    <Row style={{ marginBottom: '16px', marginTop: '16px' }}>
+                      <Col md="12">
+                        <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
+                          {/* Mostrar la imagen si base64File está disponible */}
+                          {base64File && (
+                            <img
+                              src={base64File}
+                              alt={file.name}
+                              style={{ width: '64px', height: '64px', objectFit: 'cover', marginRight: '16px' }}
+                            />
+                          )}
+                          <p
+                            style={{
+                              flex: 1,
+                              marginRight: '16px',
+                            }}
+                          >
+                            {file ? `${file.name} (${(file.size / 1024).toFixed(0)}kb)` : 'No file uploaded'}
+                          </p>
+                          <Progress style={{ flex: 3, margin: '0 16px' }} percent={100} status="success" />
+                          <FontAwesomeIcon
+                            style={{ flex: 0, cursor: 'pointer' }}
+                            icon={faClose}
+                            onClick={() => {
+                              setFile(null);
+                              setBase64File('');
+                            }} // Resetea el archivo y la vista previa
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                  )}
                 </CardBody>
               </Card>
             </Col>
@@ -350,8 +324,11 @@ function Cerebrum(props) {
                       <FormGroup>
                         <Label for="inputState">{t('brain_config_model_select')}</Label>
                         <Input type="select" name="select" id="inputState" onChange={handleSelectChangeSegmentation}>
+                          <option key={0} value={'all'}>
+                            {t('brain_select_all')}
+                          </option>
                           {Object.keys(segmentationModels).map((model, index) => (
-                            <option key={index} value={model}>
+                            <option key={index + 1} value={model}>
                               {model.charAt(0).toUpperCase() + model.slice(1)} {segmentationModels[model].dice_coef} {'%'}
                             </option>
                           ))}
@@ -379,7 +356,7 @@ function Cerebrum(props) {
             </Col>
           </Row>
 
-          {Object.keys(predictResponse).length != 0 && (
+          {Object.keys(predictResponse).length != 0 && !isLoading && (
             <Row style={{ display: 'flex', flexWrap: 'wrap' }}>
               <Col md="12" style={{ display: 'flex' }}>
                 <Card style={{ flex: 1 }}>
@@ -389,26 +366,59 @@ function Cerebrum(props) {
                     </CardTitle>
                   </CardHeader>
                   <CardBody style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-                    {!isLoading && (
-                      <Row style={{ flex: '1' }}>
-                        <Col md="6">
-                          <img
-                            src={'data:image/png;base64,' + predictResponse['segmentation'].original}
-                            alt="Original"
-                            style={{ width: '100%', height: 'auto' }}
-                          />
-                          <p style={{ width: '100%', height: 'auto', textAlign: 'center', marginTop: '1vh' }}>Imagen original</p>
-                        </Col>
-                        <Col md="6">
-                          <img
-                            src={'data:image/png;base64,' + predictResponse['segmentation'].mask}
-                            alt="Prediction"
-                            style={{ width: '100%', height: 'auto' }}
-                          />
-                          <p style={{ width: '100%', height: 'auto', textAlign: 'center', marginTop: '1vh' }}>Imagen predicha</p>
-                        </Col>
-                      </Row>
-                    )}
+                    <Row style={{ display: 'flex', alignItems: 'flex-start', width: '100%' }}>
+                      <Col
+                        md="4"
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'column',
+                          justifyContent: 'flex-start',
+                          alignItems: 'flex-start',
+                        }}
+                      >
+                        <h4>{file.name}</h4>
+                        <h4 style={{ marginBottom: '0.5em' }}>Detección</h4>
+                        <p style={{ marginTop: '0.5em', marginBottom: '0.5em' }}>{t('brain_used_model')}: </p>
+                        <p style={{ marginTop: '0.5em', marginBottom: '0.5em' }}>{t('brain_detected')}:</p>
+                        {/*<h4 style={{ marginBottom: '0.5em' }}>Clasificación</h4>
+                        <p style={{ marginTop: '0.5em', marginBottom: '0.5em' }}>{t('brain_used_model')}: </p>
+                        <p style={{ marginTop: '0.5em', marginBottom: '0.5em' }}>{t('brain_classification_type')}:</p>*/}
+                        <h4 style={{ marginBottom: '0.5em' }}>Segmentación</h4>
+                        <p style={{ marginTop: '0.5em', marginBottom: '0.5em' }}>{t('brain_used_model')}: </p>
+                      </Col>
+                      <Col
+                        md="4"
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'column',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                        }}
+                      >
+                        <p style={{ textAlign: 'center' }}>Imagen original</p>
+                        <img
+                          src={'data:image/png;base64,' + predictResponse['segmentation'].original}
+                          alt="Original"
+                          style={{ width: '100%', height: 'auto' }}
+                        />
+                      </Col>
+                      <Col
+                        md="4"
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'column',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                        }}
+                      >
+                        <p style={{ textAlign: 'center' }}>Imagen predicha</p>
+                        <img
+                          src={'data:image/png;base64,' + predictResponse['segmentation'].mask}
+                          alt="Prediction"
+                          style={{ width: '100%', height: 'auto' }}
+                        />
+                      </Col>
+                    </Row>
                   </CardBody>
                 </Card>
               </Col>

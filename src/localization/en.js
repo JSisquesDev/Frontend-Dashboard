@@ -6,6 +6,9 @@ const en = {
   welcome: 'Welcome',
   change_language: 'Change Language',
   accept: 'Ok',
+  detection: 'Detection',
+  classification: 'Classification',
+  segmentation: 'Segmentation',
 
   //Sidebar Menu
   home: 'Home',
@@ -50,6 +53,12 @@ const en = {
     'By checking this box, I confirm that I have read and agree to the terms and conditions for the use of the provided photos for the purpose of training artificial intelligence models.',
   brain_config_file_upload_not_found: 'Please upload an image before submitting the form.',
   brain_predict_results: 'Results',
+  brain_drag_and_drop_files: "Drag 'n' drop some images here, or click to select images",
+  brain_select_all: 'Select all',
+  brain_aditional_info: 'Aditional information',
+  brain_used_model: 'Used model',
+  brain_detected: 'Detected',
+  brain_classification_type: 'Type',
 };
 
 export default en;
