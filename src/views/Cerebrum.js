@@ -127,6 +127,8 @@ function Cerebrum(props) {
     setIsLoading(true);
     const json = createRequestJson();
 
+    console.log(json);
+
     axios({
       method: 'post',
       url: 'http://localhost:5080/predict',
