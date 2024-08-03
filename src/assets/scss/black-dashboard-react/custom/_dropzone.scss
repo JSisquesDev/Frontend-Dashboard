@@ -1,0 +1,32 @@
+.dropzone {
+  flex: 1;
+  display: 'flex';
+  flex-direction: 'column';
+  justify-content: 'center'; // Centra verticalmente
+  align-items: 'center';
+  padding: '20px';
+  border-width: 2;
+  border-radius: 2;
+  border-color: 'blue';
+  border-style: 'dashed';
+  background-color: '#000000';
+  color: 'FFFFFF'; // Cambié el color del texto a blanco para que sea visible en el fondo negro
+  outline: 'none';
+  transition: 'border .24s ease-in-out';
+  height: '100%';
+  width: '100%';
+  text-align: 'center';
+
+  /* Estilos para estados específicos */
+  &.focused {
+    border-color: #2196f3;
+  }
+
+  &.accept {
+    border-color: #00e676;
+  }
+
+  &.reject {
+    border-color: #ff1744;
+  }
+}

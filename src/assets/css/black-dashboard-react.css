@@ -15896,6 +15896,36 @@ textarea.form-control {
   margin: 1em;
 }
 
+.dropzone {
+  flex: 1;
+  display: "flex";
+  flex-direction: "column";
+  justify-content: "center";
+  align-items: "center";
+  padding: "20px";
+  border-width: 2;
+  border-radius: 2;
+  border-color: #00b2ff;
+  border-style: "dashed";
+  background-color: "#000000";
+  color: #ffffff;
+  outline: "none";
+  transition: "border .24s ease-in-out";
+  height: "100%";
+  width: "100%";
+  text-align: "center";
+  /* Estilos para estados específicos */
+}
+.dropzone.focused {
+  border-color: #2196f3;
+}
+.dropzone.accept {
+  border-color: #00e676;
+}
+.dropzone.reject {
+  border-color: #ff1744;
+}
+
 /*
  * Container style
  */

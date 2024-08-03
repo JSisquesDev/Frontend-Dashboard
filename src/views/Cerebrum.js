@@ -78,7 +78,7 @@ function Cerebrum(props) {
 
     axios({
       method: 'get',
-      url: 'http://localhost:5000/models',
+      url: 'http://localhost:5080/models',
     })
       .then(response => {
         const data = JSON.stringify(response.data);
@@ -132,7 +132,7 @@ function Cerebrum(props) {
 
     axios({
       method: 'post',
-      url: 'http://localhost:5000/predict',
+      url: 'http://localhost:5080/predict',
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -195,7 +195,7 @@ function Cerebrum(props) {
                 <CardBody style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
                   <Row style={{ flex: '1 0 50%' }}>
                     <Col>
-                      <CustomDropzone handleFileUpload={handleFileUpload} style={{ backgroundColor: '#fafafa' }}>
+                      <CustomDropzone handleFileUpload={handleFileUpload} className="dropzone">
                         {({ getRootProps, getInputProps }) => (
                           <div {...getRootProps()}>
                             <input {...getInputProps()} />
@@ -274,7 +274,9 @@ function Cerebrum(props) {
                 <CardBody>
                   <form>
                     <FormGroup>
-                      <Label for="exampleEmail">{t('brain_detection_config_title')}</Label>
+                      <Label for="exampleEmail" tag="h6">
+                        {t('brain_detection_config_title')}
+                      </Label>
                       <FormGroup check>
                         <Label check>
                           <Input
@@ -300,9 +302,10 @@ function Cerebrum(props) {
                           ))}
                         </Input>
                       </FormGroup>
-                      <FormText color="muted">{t('brain_detection_config_desc')}</FormText>
-                      <Divider className="divider" />
-                      <Label for="exampleEmail">{t('brain_classification_config_title')}</Label>
+                      <Divider className="divider" style={{ marginBottom: '1em' }} />
+                      <Label for="exampleEmail" tag="h6">
+                        {t('brain_classification_config_title')}
+                      </Label>
                       <FormGroup check>
                         <Label check>
                           <Input
@@ -325,9 +328,10 @@ function Cerebrum(props) {
                           <option>...</option>
                         </Input>
                       </FormGroup>
-                      <FormText color="muted">{t('brain_classification_config_desc')}</FormText>
-                      <Divider className="divider" />
-                      <Label for="exampleEmail">{t('brain_segmentation_config_title')}</Label>
+                      <Divider className="divider" style={{ marginBottom: '1em' }} />
+                      <Label for="exampleEmail" tag="h6">
+                        {t('brain_segmentation_config_title')}
+                      </Label>
                       <FormGroup check>
                         <Label check>
                           <Input
@@ -353,26 +357,7 @@ function Cerebrum(props) {
                           ))}
                         </Input>
                       </FormGroup>
-                      <FormText color="muted">{t('brain_segmentation_config_desc')}</FormText>
                     </FormGroup>
-                    <Divider className="divider" />
-                    <FormGroup check>
-                      <Label check>
-                        <Input type="checkbox" /> {t('brain_config_download')}
-                        <span className="form-check-sign">
-                          <span className="check"></span>
-                        </span>
-                      </Label>
-                    </FormGroup>
-                    <FormGroup check>
-                      <Label check>
-                        <Input type="checkbox" /> {t('brain_config_accept_terms')}
-                        <span className="form-check-sign">
-                          <span className="check"></span>
-                        </span>
-                      </Label>
-                    </FormGroup>
-                    <br></br>
                     {showAlert && (
                       <Alert severity="error" onClose={() => setShowAlert(false)}>
                         {t('brain_config_file_upload_not_found')}
@@ -384,6 +369,7 @@ function Cerebrum(props) {
                       onClick={() => {
                         sendForm();
                       }}
+                      style={{ width: '100%' }}
                     >
                       {t('accept')}
                     </Button>

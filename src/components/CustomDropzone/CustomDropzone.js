@@ -1,7 +1,8 @@
 import React, { useMemo } from 'react';
 import { useDropzone } from 'react-dropzone';
+import '../../assets/scss/black-dashboard-react/custom/_dropzone.scss';
 
-const baseStyle = {
+const dropzone = {
   flex: 1,
   display: 'flex',
   flexDirection: 'column',
@@ -45,7 +46,7 @@ const CustomDropzone = ({ handleFileUpload }) => {
 
   const style = useMemo(
     () => ({
-      ...baseStyle,
+      ...dropzone,
       ...(isFocused ? focusedStyle : {}),
       ...(isDragAccept ? acceptStyle : {}),
       ...(isDragReject ? rejectStyle : {}),
