@@ -15905,10 +15905,10 @@ textarea.form-control {
   padding: "20px";
   border-width: 2;
   border-radius: 2;
-  border-color: #00b2ff;
+  border-color: "blue";
   border-style: "dashed";
   background-color: "#000000";
-  color: #ffffff;
+  color: "FFFFFF";
   outline: "none";
   transition: "border .24s ease-in-out";
   height: "100%";

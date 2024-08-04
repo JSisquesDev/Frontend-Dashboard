@@ -48,9 +48,9 @@ function Cerebrum(props) {
   const [classificationModels, setClassificationModels] = useState({});
   const [segmentationModels, setSegmentationModels] = useState({});
 
-  const [detectionModelSelected, setDetectionModelSelected] = useState('');
-  const [classificationModelSelected, setClassificationModelSelected] = useState('');
-  const [segmentationModelSelected, setSegmentationModelSelected] = useState('');
+  const [detectionModelSelected, setDetectionModelSelected] = useState('all');
+  const [classificationModelSelected, setClassificationModelSelected] = useState('all');
+  const [segmentationModelSelected, setSegmentationModelSelected] = useState('all');
 
   const [isFetching, setIsFetching] = useState(false);
   const [isFirstLoad, setIsFirstLoad] = useState(true);
@@ -185,7 +185,7 @@ function Cerebrum(props) {
         <div className="content">
           <Row style={{ display: 'flex', flexWrap: 'wrap' }}>
             <Col md="6" style={{ display: 'flex' }}>
-              <Card style={{ flex: 1, minHeight: '80vh' }}>
+              <Card style={{ flex: 1 }}>
                 <CardHeader>
                   <CardTitle tag="h4">
                     <FontAwesomeIcon className="text-primary" icon={faUpload} /> {t('brain_upload_files')}
@@ -241,7 +241,7 @@ function Cerebrum(props) {
               </Card>
             </Col>
             <Col md="6" style={{ display: 'flex' }}>
-              <Card style={{ flex: 1, minHeight: '80vh' }}>
+              <Card style={{ flex: 1 }}>
                 <CardHeader>
                   <CardTitle tag="h4">
                     <FontAwesomeIcon className="text-primary" icon={faGear} /> {t('brain_config_prediction')}
@@ -271,6 +271,9 @@ function Cerebrum(props) {
                       <FormGroup>
                         <Label for="inputState">{t('brain_config_model_select')}</Label>
                         <Input type="select" name="select" id="inputState" onChange={handleSelectChangeDetection}>
+                          <option key={0} value={'all'}>
+                            {t('brain_select_all')}
+                          </option>
                           {Object.keys(detectionModels).map((model, index) => (
                             <option key={index} value={model}>
                               {model.charAt(0).toUpperCase() + model.slice(1)} {detectionModels[model].binary_accuracy} {'%'}
@@ -370,7 +373,7 @@ function Cerebrum(props) {
                   <CardBody style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
                     <Row style={{ display: 'flex', alignItems: 'flex-start', width: '100%' }}>
                       <Col
-                        md="4"
+                        md="3"
                         style={{
                           display: 'flex',
                           flexDirection: 'column',
@@ -378,18 +381,53 @@ function Cerebrum(props) {
                           alignItems: 'flex-start',
                         }}
                       >
-                        <h4>{file.name}</h4>
-                        <h4 style={{ marginBottom: '0.5em' }}>Detección</h4>
+                        <h4>General</h4>
                         <p style={{ marginTop: '0.5em', marginBottom: '0.5em' }}>{t('brain_used_model')}: </p>
                         <p style={{ marginTop: '0.5em', marginBottom: '0.5em' }}>{t('brain_detected')}:</p>
-                        {/*<h4 style={{ marginBottom: '0.5em' }}>Clasificación</h4>
-                        <p style={{ marginTop: '0.5em', marginBottom: '0.5em' }}>{t('brain_used_model')}: </p>
-                        <p style={{ marginTop: '0.5em', marginBottom: '0.5em' }}>{t('brain_classification_type')}:</p>*/}
-                        <h4 style={{ marginBottom: '0.5em' }}>Segmentación</h4>
-                        <p style={{ marginTop: '0.5em', marginBottom: '0.5em' }}>{t('brain_used_model')}: </p>
                       </Col>
                       <Col
-                        md="4"
+                        md="3"
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'column',
+                          justifyContent: 'flex-start',
+                          alignItems: 'flex-start',
+                        }}
+                      >
+                        <h4>Detección</h4>
+                        <p style={{ marginTop: '0.5em', marginBottom: '0.5em' }}>{t('brain_used_model')}: </p>
+                        <p style={{ marginTop: '0.5em', marginBottom: '0.5em' }}>{t('brain_detected')}:</p>
+                      </Col>
+                      <Col
+                        md="3"
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'column',
+                          justifyContent: 'flex-start',
+                          alignItems: 'flex-start',
+                        }}
+                      >
+                        <h4>Clasificación</h4>
+                        <p style={{ marginTop: '0.5em', marginBottom: '0.5em' }}>{t('brain_used_model')}: </p>
+                        <p style={{ marginTop: '0.5em', marginBottom: '0.5em' }}>{t('brain_classification_type')}:</p>
+                      </Col>
+                      <Col
+                        md="3"
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'column',
+                          justifyContent: 'flex-start',
+                          alignItems: 'flex-start',
+                        }}
+                      >
+                        <h4>Segmentación</h4>
+                        <p style={{ marginTop: '0.5em', marginBottom: '0.5em' }}>{t('brain_used_model')}: </p>
+                      </Col>
+                    </Row>
+                    <br></br>
+                    <Row style={{ display: 'flex', alignItems: 'flex-start', width: '100%' }}>
+                      <Col
+                        md="6"
                         style={{
                           display: 'flex',
                           flexDirection: 'column',
@@ -397,15 +435,15 @@ function Cerebrum(props) {
                           alignItems: 'center',
                         }}
                       >
-                        <p style={{ textAlign: 'center' }}>Imagen original</p>
                         <img
                           src={'data:image/png;base64,' + predictResponse['segmentation'].original}
                           alt="Original"
                           style={{ width: '100%', height: 'auto' }}
                         />
+                        <p style={{ textAlign: 'center', marginTop: '0.5em' }}>Imagen original</p>
                       </Col>
                       <Col
-                        md="4"
+                        md="6"
                         style={{
                           display: 'flex',
                           flexDirection: 'column',
@@ -413,12 +451,12 @@ function Cerebrum(props) {
                           alignItems: 'center',
                         }}
                       >
-                        <p style={{ textAlign: 'center' }}>Imagen predicha</p>
                         <img
                           src={'data:image/png;base64,' + predictResponse['segmentation'].mask}
                           alt="Prediction"
                           style={{ width: '100%', height: 'auto' }}
                         />
+                        <p style={{ textAlign: 'center', marginTop: '0.5em' }}>Imagen predicha</p>
                       </Col>
                     </Row>
                   </CardBody>

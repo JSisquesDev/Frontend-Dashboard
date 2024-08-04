@@ -7,3 +7,4 @@ documentation
 kubernetes
 scripts
 .github/*
+.gitignore
