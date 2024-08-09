@@ -13,7 +13,7 @@ const dropzone = {
   borderRadius: 2,
   borderColor: '#eeeeee',
   borderStyle: 'dashed',
-  backgroundColor: '#000000',
+  backgroundColor: '#212121',
   color: '#ffffff', // Cambié el color del texto a blanco para que sea visible en el fondo negro
   outline: 'none',
   transition: 'border .24s ease-in-out',

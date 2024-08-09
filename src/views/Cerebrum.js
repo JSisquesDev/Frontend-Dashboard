@@ -32,6 +32,8 @@ import { Alert, Divider } from '@mui/material';
 import axios from 'axios';
 
 import CustomDropzone from '../components/CustomDropzone/CustomDropzone.js';
+import CustomSpinner from 'components/CustomSpinner/CustomSpinner.js';
+import { MagnifyingGlass, Oval } from 'react-loader-spinner';
 
 function Cerebrum(props) {
   const { t } = useTranslation();
@@ -169,15 +171,29 @@ function Cerebrum(props) {
 
   if (isLoading) {
     return (
-      <Row style={{ display: 'flex', flexWrap: 'wrap' }}>
-        <Col md="12" style={{ display: 'flex' }}>
-          <Card style={{ flex: 1 }}>
-            <CardBody style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-              <Spinner>adasd</Spinner>
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
+      <>
+        <div className="content">
+          <Row style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+            <Col md="12" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <Card
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  padding: '20px',
+                  background: 'transparent',
+                  boxShadow: 'none',
+                }}
+              >
+                <CardBody style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                  <Oval secondaryColor="white" color="#00B2FF" />
+                  <h3 style={{ marginTop: '10px' }}>Cargando...</h3>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
+        </div>
+      </>
     );
   } else {
     return (
@@ -371,7 +387,7 @@ function Cerebrum(props) {
                     </CardTitle>
                   </CardHeader>
                   <CardBody style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-                    <Row style={{ display: 'flex', alignItems: 'flex-start', width: '100%' }}>
+                    {/*<Row style={{ display: 'flex', alignItems: 'flex-start', width: '100%' }}>
                       <Col
                         md="3"
                         style={{
@@ -424,7 +440,7 @@ function Cerebrum(props) {
                         <p style={{ marginTop: '0.5em', marginBottom: '0.5em' }}>{t('brain_used_model')}: </p>
                       </Col>
                     </Row>
-                    <br></br>
+                    <br></br>*/}
                     <Row style={{ display: 'flex', alignItems: 'flex-start', width: '100%' }}>
                       <Col
                         md="6"
